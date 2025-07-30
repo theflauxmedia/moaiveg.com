@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://moai-restaurant.com/sitemap.xml
+
+# Specific bot permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Disallow crawling of any admin or private areas
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all search engines to index the main content
+Crawl-delay: 1
