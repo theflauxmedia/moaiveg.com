@@ -83,7 +83,7 @@ const Gallery = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10">
+      <section className="py-20 bg-gradient-to-r from-primary/10 to-[#FED6AB]/10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-primary mb-6 animate-royal-entrance">
             Ready to Create Your Own Memories?

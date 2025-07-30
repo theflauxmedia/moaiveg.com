@@ -30,12 +30,12 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
         <h1 className="text-6xl md:text-7xl font-bold mb-6 animate-royal-entrance">
           Where Artistry 
-          <span className="block text-accent shimmer-text">Meets Flavour</span>
+          <span className="block text-accent shimmer-text">Meets Flavours</span>
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 opacity-90 animate-luxury-slide font-light leading-relaxed">
           Experience pure vegetarian cuisine like never before. MOAI invites you to 
-          <span className="text-accent font-medium"> Mingle Over Artisanal Infusion </span>
+          <span className="text-accent font-medium"> Mingle Over Artisanal Infusions </span>
           in the heart of Jayanagar.
         </p>
         

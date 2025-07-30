@@ -9,7 +9,7 @@ const Philosophy = () => {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 animate-royal-entrance">
                 Our Philosophy:
-                <span className="block text-accent shimmer-text">Mingle Over Artisanal Infusion</span>
+                <span className="block text-accent shimmer-text">Mingle Over Artisanal Infusions</span>
               </h2>
               
               <div className="space-y-6 text-lg leading-relaxed text-muted-foreground animate-luxury-slide">

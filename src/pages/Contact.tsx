@@ -109,8 +109,8 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-foreground mb-4">Opening Hours</h3>
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
-                      <span className="font-medium">Open Everyday From</span>
-                      <span>12:00 PM to 11:00 PM</span>
+                      <span className="font-medium">12:30 PM to 3:30 PM <br/> <span>7:00 PM to 11:00 PM</span></span>
+                      
                     </div>
                   </div>
                 </CardContent>
@@ -160,7 +160,7 @@ const Contact = () => {
                       <Input 
                         id="phone" 
                         type="tel" 
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+91-9087432781"
                         className="border-border/50 focus:border-primary"
                       />
                     </div>
@@ -200,7 +200,7 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/5 to-accent/5">
+      <section className="py-20 bg-gradient-to-r from-primary/5 to-[#FED6AB]/5">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">Find Us</h2>

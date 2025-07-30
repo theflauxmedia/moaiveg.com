@@ -106,7 +106,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
             <nav className="flex-1 flex flex-col justify-center items-center space-y-8 px-6">
               {[
                 { href: "/", label: "Home"},
-                { href: "/menu", label: "Our Menu" },
+                { href: "https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484", label: "Our Menu" },
                 { href: "/gallery", label: "Gallery" },
                 { href: "/contact", label: "Contact" },
               ].map((link, index) => (

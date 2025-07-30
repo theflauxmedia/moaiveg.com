@@ -18,7 +18,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
         isScrolled 
-          ? "bg-primary/50 backdrop-blur-md shadow-elegant border-b border-accent/20" 
+          ? "bg-primary/50 backdrop-blur-md shadow-elegant border-b border-[#FED6AB]/20" 
           : "bg-transparent"
       }`}
     >
@@ -44,7 +44,7 @@ const Navigation = () => {
               Home
             </a>
             <a 
-              href="/menu" 
+              href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484" 
               className="text-white/80 hover:text-white transition-smooth font-medium"
             >
               Our Menu

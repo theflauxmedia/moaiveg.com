@@ -83,7 +83,7 @@ const Menu = () => {
                         <h4 className="font-semibold text-foreground group-hover:text-primary transition-smooth">
                           {item.name}
                         </h4>
-                        <span className="text-accent font-bold text-lg ml-4 flex-shrink-0">
+                        <span className="text-[#FED6AB] font-bold text-lg ml-4 flex-shrink-0">
                           {item.price}
                         </span>
                       </div>
@@ -105,7 +105,7 @@ const Menu = () => {
         {/* View Full Menu CTA */}
         <div className="text-center mt-12">
           <div className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-light transition-smooth cursor-pointer">
-            <a href="/menu">
+            <a href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484">
             <span>View Complete Menu</span>
             </a>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

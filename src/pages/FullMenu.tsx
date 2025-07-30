@@ -165,7 +165,7 @@ const FullMenu = () => {
       case "Gluten-Free": return "bg-purple-100 text-purple-800";
       case "Organic": return "bg-orange-100 text-orange-800";
       case "Protein-Rich": return "bg-red-100 text-red-800";
-      case "Gourmet": return "bg-yellow-100 text-yellow-800";
+      case "Gourmet": return "bg-[#FED6AB] text-[#a97a50]";
       default: return "bg-gray-100 text-gray-800";
     }
   };
@@ -218,7 +218,7 @@ const FullMenu = () => {
                         <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth">
                           {item.name}
                         </h3>
-                        <span className="text-accent font-bold text-xl ml-4 flex-shrink-0">
+                        <span className="text-[#FED6AB] font-bold text-xl ml-4 flex-shrink-0">
                           {item.price}
                         </span>
                       </div>
@@ -247,7 +247,7 @@ const FullMenu = () => {
       </section>
 
       {/* Chef's Special */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10">
+      {/* <section className="py-20 bg-gradient-to-r from-primary/10 to-[#FED6AB]/10">
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-primary mb-6 animate-royal-entrance">
@@ -264,7 +264,7 @@ const FullMenu = () => {
                   <p className="text-muted-foreground mb-4">
                     A curated journey through our most beloved dishes
                   </p>
-                  <div className="text-2xl font-bold text-accent">₹1,485</div>
+                  <div className="text-2xl font-bold text-[#FED6AB]">₹1,485</div>
                 </CardContent>
               </Card>
               <Card className="gradient-card border-border/50">
@@ -273,7 +273,7 @@ const FullMenu = () => {
                   <p className="text-muted-foreground mb-4">
                     The complete MOAI experience with wine pairings
                   </p>
-                  <div className="text-2xl font-bold text-accent">₹2,185</div>
+                  <div className="text-2xl font-bold text-[#FED6AB]">₹2,185</div>
                 </CardContent>
               </Card>
             </div>
@@ -282,7 +282,7 @@ const FullMenu = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
       <Credits />

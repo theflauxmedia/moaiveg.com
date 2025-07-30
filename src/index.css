@@ -30,10 +30,10 @@
     --muted: 40 15% 96%;
     --muted-foreground: 140 15% 45%;
 
-    /* Accent - Royal Golden */
-    --accent: 43 96% 56%;
+    /* Accent - Soft Peach */
+    --accent: 32 97% 83%; /* #FED6AB */
     --accent-foreground: 140 20% 15%;
-    --accent-light: 43 80% 70%;
+    --accent-light: 32 97% 90%; /* lighter #FED6AB */
 
     /* Wood tones */
     --wood: 30 25% 65%;
