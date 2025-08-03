@@ -83,19 +83,19 @@ const Experience = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mt-20 flex flex-wrap justify-center gap-8">
           {[
-            {},
             { number: "100+", label: "Artisanal Dishes" },
-            { number: "4.8★", label: "Guest Rating" }
+            { number: "4.8★", label: "Guest Rating" },
+            {number:"1000+", label:"Happy Customers"}
           ].map((stat, index) => (
-            <div key={index} className="text-center animate-royal-entrance" style={{ animationDelay: `${index * 0.1}s` }}>
+            <div key={index} className="text-center animate-royal-entrance min-w-[200px]" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="text-3xl md:text-4xl font-bold text-accent mb-2 shimmer-text">
                 {stat.number}
               </div>
-              <div className="text-muted-foreground font-medium w-full flex justify-center">
-  {stat.label}
-</div>
+              <div className="text-muted-foreground font-medium">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>

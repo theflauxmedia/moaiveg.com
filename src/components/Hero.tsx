@@ -41,7 +41,9 @@ const Hero = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-elegant-zoom">
           <Button variant="hero" size="lg" className="text-lg px-8 py-4 royal-glow">
+            <a href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484">
             Explore Our Menu
+            </a>
           </Button>
           <Button 
             variant="elegant" 

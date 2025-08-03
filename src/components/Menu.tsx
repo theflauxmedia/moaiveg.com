@@ -8,12 +8,12 @@ const Menu = () => {
         {
           name: "Creamy Avocado Chattak Puri",
           description: "A delightful fusion of creamy avocado on a crispy puri base with tangy chutneys",
-          price: "₹285"
+          //price: "₹285"
         },
         {
           name: "Nadru Burrata Papdi Chat", 
           description: "Crispy lotus stem and fresh burrata cheese on a classic papdi with mint chutney",
-          price: "₹325"
+          //price: "₹325"
         }
       ]
     },
@@ -23,12 +23,12 @@ const Menu = () => {
         {
           name: "Amaranth Coated Hara Bhara Kebab",
           description: "A healthy twist on a classic, coated in nutritious amaranth with yogurt dip",
-          price: "₹275"
+          //price: "₹275"
         },
         {
           name: "Memory Lane Cheese Fondue",
           description: "A comforting and shareable classic, perfect for mingling with artisanal bread",
-          price: "₹425"
+          //price: "₹425"
         }
       ]
     },
@@ -38,12 +38,12 @@ const Menu = () => {
         {
           name: "Turkish Shepherd's Salad",
           description: "A refreshing and vibrant mix of fresh vegetables with olive oil and herbs",
-          price: "₹245"
+          // price: "₹245"
         },
         {
           name: "Creamy Corn Soup with Kurkure Chat",
           description: "A playful and textural soup experience with crispy kurkure toppings",
-          price: "₹225"
+          // price: "₹225"
         }
       ]
     }
