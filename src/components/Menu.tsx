@@ -4,6 +4,7 @@ const Menu = () => {
   const menuCategories = [
     {
       title: "Artisanal Chats",
+      image: "/food/1.jpg",
       items: [
         {
           name: "Creamy Avocado Chattak Puri",
@@ -19,6 +20,7 @@ const Menu = () => {
     },
     {
       title: "Small Plates",
+      image: "/food/2.jpg",
       items: [
         {
           name: "Amaranth Coated Hara Bhara Kebab",
@@ -34,6 +36,7 @@ const Menu = () => {
     },
     {
       title: "Soups & Salads",
+      image: "/food/3.jpg",
       items: [
         {
           name: "Turkish Shepherd's Salad",
@@ -68,26 +71,37 @@ const Menu = () => {
           {menuCategories.map((category, index) => (
             <Card 
               key={index} 
-              className="gradient-card border-border/50 hover:shadow-elegant transition-smooth animate-elegant-zoom royal-border hover:royal-glow"
+              className="gradient-card border-border/50 hover:shadow-elegant transition-smooth animate-elegant-zoom royal-border hover:royal-glow hover-lift group"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
+              {/* Category Image */}
+              <div className="relative h-48 overflow-hidden rounded-t-lg">
+                <img 
+                  src={category.image} 
+                  alt={category.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                    {category.title}
+                  </h3>
+                </div>
+              </div>
+              
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6 text-center">
-                  {category.title}
-                </h3>
-                
                 <div className="space-y-6">
                   {category.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="group">
+                    <div key={itemIndex} className="group/item">
                       <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-semibold text-foreground group-hover:text-primary transition-smooth">
+                        <h4 className="font-semibold text-foreground group-hover/item:text-primary transition-smooth">
                           {item.name}
                         </h4>
-                        <span className="text-[#FED6AB] font-bold text-lg ml-4 flex-shrink-0">
+                        <span className="text-brand-bronze font-bold text-lg ml-4 flex-shrink-0">
                           {item.price}
                         </span>
                       </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground/80 transition-smooth">
                         {item.description}
                       </p>
                       
@@ -104,13 +118,13 @@ const Menu = () => {
 
         {/* View Full Menu CTA */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-light transition-smooth cursor-pointer">
-            <a href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484">
-            <span>View Complete Menu</span>
+          <div className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-light transition-smooth cursor-pointer group">
+            <a href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484" className="flex items-center gap-2 hover:scale-105 transition-smooth">
+              <span>View Complete Menu</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </a>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </div>
         </div>
       </div>

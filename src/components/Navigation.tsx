@@ -65,7 +65,7 @@ const Navigation = () => {
 
           {/* Desktop Reservation Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="lg" className="animate-bounce-elegant">
+            <Button variant="outline" size="lg" className="animate-bounce-elegant text-white bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-550">
               Reserve a Table
             </Button>
           </div>
