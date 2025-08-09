@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
             <p className="text-white/90 leading-relaxed max-w-md">
               Where culinary artistry meets sustainable dining. Experience the finest vegetarian cuisine 
-              crafted with passion, creativity, and the freshest ingredients in an atmosphere of refined elegance.
+              crafted with passion, creativity, and the freshest ingredients in an atmosphere <br/> of refined elegance.
             </p>
             <div className="flex space-x-4">
               <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
