@@ -76,7 +76,7 @@ const Hero = () => {
               {/* Primary image */}
               <div className="relative glass rounded-2xl lg:rounded-3xl overflow-hidden shadow-glow">
                 <video 
-                  src="/bgbd.webm"
+                  src="/bgvd.webm"
                   autoPlay
                   muted
                   loop
