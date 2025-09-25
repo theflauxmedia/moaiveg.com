@@ -52,7 +52,7 @@ const Hero = () => {
               <Button variant="hero" size="lg" className="text-[#0046D3] sm:text-lg px-6 sm:px-8 py-3 sm:py-4 royal-glow">
                 Explore Our Menu
               </Button>
-              <Button variant="elegant" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
+              <Button variant="elegant" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={() => { window.location.href = "https://webbook.wegsoft.com/B34LKJHG76V"; }}>
                 Reserve a Table
               </Button>
             </div>

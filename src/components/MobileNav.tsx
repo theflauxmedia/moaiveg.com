@@ -110,7 +110,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                   size="lg"
                   className="animate-royal-entrance motion-safe:animate-fade-in"
                   style={{ animationDelay: "0.4s" }}
-                  onClick={toggleMenu}
+                  onClick={() => { window.location.href = "https://webbook.wegsoft.com/B34LKJHG76V"; }}
                 >
                   Reserve a Table
                 </Button>
