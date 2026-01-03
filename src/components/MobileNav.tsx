@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 
 interface MobileNavProps {
   isScrolled: boolean;
@@ -104,7 +104,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                 </a>
               ))}
 
-              <div className="pt-8">
+              {/* <div className="pt-8">
                 <Button
                   variant="hero"
                   size="lg"
@@ -114,7 +114,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                 >
                   Reserve a Table
                 </Button>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

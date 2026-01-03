@@ -237,12 +237,12 @@ const Gallery = () => {
             Join us for an unforgettable dining experience where every moment becomes a cherished memory.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            {/* <a 
               href="/contact"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-medium transition-smooth hover:shadow-elegant"
             >
               Reserve Your Table
-            </a>
+            </a> */}
             <a 
               href="/menu"
               className="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-medium transition-smooth"

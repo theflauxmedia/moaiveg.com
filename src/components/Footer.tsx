@@ -28,9 +28,9 @@ const Footer = () => {
               crafted with passion, creativity, and the freshest ingredients in an atmosphere <br/> of refined elegance.
             </p>
             <div className="flex space-x-4">
-              <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
+              {/* <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
                 Reserve Now
-              </Button>
+              </Button> */}
               <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                 <a href="/menu">View Menu</a>
               </Button>

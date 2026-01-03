@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
 
 const Navigation = () => {
@@ -64,11 +64,11 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Reservation Button */}
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <Button variant="outline" size="lg" className="animate-bounce-elegant text-white bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-550" onClick={() => { window.location.href = "https://webbook.wegsoft.com/B34LKJHG76V"; }}>
               Reserve a Table
             </Button>
-          </div>
+          </div> */}
 
           {/* Mobile Navigation */}
           <MobileNav isScrolled={isScrolled} />

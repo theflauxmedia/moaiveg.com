@@ -88,5 +88,9 @@
   "main": "eslint.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "npm@11.6.3"
 }
