@@ -99,7 +99,7 @@ const Gallery = () => {
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Immerse yourself in the visual feast of MOAI's culinary artistry. 
-            Every image tells a story of passion, creativity, and exceptional dining experiences.
+            Every image tells a story of premium vegetarian dining in Bangalore with luxury ambience in Jayanagar.
           </p>
         </div>
       </section>
@@ -234,7 +234,7 @@ const Gallery = () => {
             Ready to Create Your Own Memories?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join us for an unforgettable dining experience where every moment becomes a cherished memory.
+            Join us for an unforgettable pure vegetarian and vegan-friendly dining experience in Jayanagar, Bangalore.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* <a 

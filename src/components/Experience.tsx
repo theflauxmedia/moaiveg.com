@@ -24,7 +24,7 @@ const Experience = () => {
     },
     {
       title: "Perfect for Gatherings",
-      description: "MOAI is a place to connect. Whether it's a quiet dinner or a celebration, our space is designed for you to mingle over artisanal infusions.",
+      description: "MOAI is a place to connect. Whether it's a quiet dinner, a birthday, an anniversary, or a corporate party, our space is designed for group dining in Bangalore.",
       image: "/ambinace/ppl.JPG",
       // icon: (
       //   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ const Experience = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             More than just a meal, MOAI offers a complete sensory journey where 
-            every detail has been thoughtfully crafted to create unforgettable moments.
+            every detail has been thoughtfully crafted to create unforgettable moments for couples, families, and corporate teams in Jayanagar.
           </p>
         </div>
 

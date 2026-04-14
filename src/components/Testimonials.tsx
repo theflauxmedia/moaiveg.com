@@ -86,7 +86,7 @@ const Testimonials = () => {
               <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
             </h2>
             <p className="text-lg text-foreground max-w-2xl mx-auto animate-luxury-slide font-medium">
-              Discover the stories and experiences of those who have savored our artisanal vegetarian creations
+              Discover why guests rate MOAI among the best vegetarian restaurants in Bangalore for pure veg fine dining, romantic dinners, and family dining.
             </p>
           </div>
 
@@ -185,7 +185,7 @@ const Testimonials = () => {
             <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
           </h2>
           <p className="text-lg text-foreground max-w-2xl mx-auto animate-luxury-slide font-medium">
-            Discover the stories and experiences of those who have savored our artisanal vegetarian creations
+            Discover why guests rate MOAI among the best vegetarian restaurants in Bangalore for pure veg fine dining, romantic dinners, and family dining.
           </p>
         </div>
 

@@ -92,5 +92,13 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "npm@11.6.3"
+  "packageManager": "npm@11.6.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theflauxmedia/moaiveg.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theflauxmedia/moaiveg.com/issues"
+  },
+  "homepage": "https://github.com/theflauxmedia/moaiveg.com#readme"
 }

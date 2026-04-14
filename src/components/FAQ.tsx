@@ -11,6 +11,14 @@ const FAQ = () => {
       answer: "Yes, we offer Jain and vegan menu options as well. As of now, the selections are limited. Please check with our team for the day's availability."
     },
     {
+      question: "Where are you located in Bangalore?",
+      answer: "We’re located in Jayanagar, Bengaluru (790/43, 9th Main Rd, 4th Block). If you’re searching for a vegetarian restaurant near me or veg restaurants near me, MOAI is easy to reach from across Bangalore."
+    },
+    {
+      question: "Is MOAI a pure vegetarian restaurant?",
+      answer: "Yes. MOAI is a pure vegetarian restaurant in Bangalore with vegan-friendly options, designed for a premium vegetarian fine dining experience."
+    },
+    {
       question: "Do you offer valet parking?",
       answer: "Yes, we provide complimentary valet parking service for all our guests. Our valet service is available during all dining hours and ensures a convenient parking experience."
     },
@@ -25,7 +33,15 @@ const FAQ = () => {
     },
     {
       question: "What are your operating hours?",
-      answer: "We are open for lunch from 12:30 PM to 3:30 PM and dinner from 7:00 PM to 11:00 PM. We are closed on Mondays."
+      answer: "We are open all days from 12:00 PM to 4:00 PM and 6:30 PM to 11:00 PM."
+    },
+    {
+      question: "Do you host birthdays, anniversaries, and romantic dinners?",
+      answer: "Yes — MOAI is a great veg restaurant in Bangalore for birthdays, anniversaries, and romantic dinners for couples. Tell us your occasion while booking and we’ll help plan the experience."
+    },
+    {
+      question: "Do you support corporate dining and business lunches in Jayanagar?",
+      answer: "Yes. We’re a popular option for corporate dining in Bangalore — including business lunches, corporate dinners, and office team outings. Contact us for group dining and corporate event requirements."
     },
     {
       question: "Do you offer catering services?",
@@ -108,7 +124,7 @@ const FAQ = () => {
               Contact Us
             </a>
             <a 
-              href="tel:080-468-10697"
+              href="tel:08047363493"
               className="border border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-lg font-medium transition-smooth"
             >
               Call Now

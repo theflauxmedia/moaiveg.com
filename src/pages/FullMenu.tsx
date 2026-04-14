@@ -182,7 +182,7 @@ const FullMenu = () => {
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Discover our complete collection of artisanal vegetarian dishes, each crafted with passion 
-            and the finest ingredients to create an unforgettable dining experience.
+            and the finest ingredients for vegetarian fine dining in Bangalore, including vegan and multi-cuisine options.
           </p>
         </div>
       </section>

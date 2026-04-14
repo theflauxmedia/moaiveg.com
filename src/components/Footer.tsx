@@ -24,8 +24,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-white/90 leading-relaxed max-w-md">
-              Where culinary artistry meets sustainable dining. Experience the finest vegetarian cuisine 
-              crafted with passion, creativity, and the freshest ingredients in an atmosphere <br/> of refined elegance.
+              Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar, Bangalore offering premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors — ideal for family meals, date nights, celebrations, and corporate group dining.
             </p>
             <div className="flex space-x-4">
               {/* <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
@@ -67,7 +66,7 @@ const Footer = () => {
                 <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <p>080-468-10697</p>
+                <p>08047363493</p>
               </div>
               
               <div className="flex items-center space-x-3">
@@ -78,6 +77,22 @@ const Footer = () => {
                 <p>moai.eripl@gmail.com</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Local SEO Keyword Coverage */}
+        <div className="border-t border-white/20 pt-8 mb-8">
+          <h4 className="text-lg font-bold text-white mb-4">Popular Searches</h4>
+          <div className="space-y-3 text-sm text-white/80 leading-relaxed">
+            <p>
+              vegetarian restaurant bangalore, best vegetarian restaurant bangalore, top veg restaurants bangalore, best veg restaurant bangalore, veg restaurant bangalore, pure vegetarian restaurant bangalore, vegetarian fine dining bangalore, fine dining vegetarian bangalore, luxury veg restaurant bangalore, premium vegetarian dining bangalore, veg fine dining bangalore
+            </p>
+            <p>
+              veg restaurants near me, vegetarian restaurant near me, best vegetarian lunch bangalore, best vegetarian dinner bangalore, veg brunch bangalore, family veg restaurant bangalore, romantic veg dinner bangalore, veg restaurant for couples bangalore, veg restaurant for birthdays bangalore, veg restaurant for anniversaries bangalore, veg group dining bangalore
+            </p>
+            <p>
+              corporate dining bangalore, corporate lunch bangalore, corporate dinner bangalore, business lunch bangalore, corporate event venue bangalore, corporate party restaurant bangalore, office team outing restaurant bangalore, group dining restaurant bangalore, vegetarian restaurant jayanagar, best vegetarian restaurant jayanagar, veg restaurant jayanagar, vegetarian fine dining jayanagar, veg fine dining jayanagar, fine dining restaurant jayanagar, luxury restaurant jayanagar, premium dining jayanagar, romantic dinner jayanagar, family restaurant jayanagar, corporate dining jayanagar, group dining jayanagar, vegan restaurant bangalore, best vegan restaurant bangalore, vegan fine dining bangalore, plant based restaurant bangalore, healthy vegetarian restaurant bangalore, multi cuisine vegetarian bangalore, north indian veg restaurant bangalore, south indian veg restaurant bangalore, continental veg restaurant bangalore, fusion veg restaurant bangalore
+            </p>
           </div>
         </div>
 
@@ -92,15 +107,8 @@ const Footer = () => {
             </h4>
             <div className="bg-white/10 rounded-lg p-4 space-y-2 text-white/90">
               <div className="flex justify-between items-center">
-                <span className="font-medium">Lunch</span>
-                <span>12:00 PM - 3:30 PM</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="font-medium">Dinner</span>
-                <span>7:00 PM - 11:00 PM</span>
-              </div>
-              <div className="text-xs text-white/70 mt-2">
-                Closed on Mondays
+                <span className="font-medium">All Days</span>
+                <span>12–4 pm<br />6:30–11 pm</span>
               </div>
             </div>
           </div>
@@ -193,7 +201,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-white/70 text-sm">
-            © 2025 MOAI Restaurant. All rights reserved.
+            © {new Date().getFullYear()} MOAI Restaurant. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-white/70">
             <a href="/privacy" className="hover:text-white transition-smooth">Privacy Policy</a>

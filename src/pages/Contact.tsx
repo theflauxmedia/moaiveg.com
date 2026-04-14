@@ -134,8 +134,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
-            We'd love to hear from you. Whether you have questions about our menu, 
-            want to make a reservation, or simply wish to share your experience with us.
+            We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining — we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore.
           </p>
         </div>
       </section>
@@ -153,7 +152,7 @@ const Contact = () => {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
                   Our team is here to assist you with reservations, special requests, 
-                  or any questions about our artisanal vegetarian dining experience.
+                  or any questions about our pure vegetarian and vegan-friendly fine dining experience in Bengaluru.
                 </p>
               </div>
 
@@ -190,7 +189,7 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-2">Call Us</h3>
                         <p className="text-muted-foreground">
-                          <span className="font-medium">080-468-10697</span><br />
+                          <span className="font-medium">08047363493</span><br />
                         </p>
                       </div>
                     </div>
@@ -223,9 +222,14 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-foreground mb-4">Opening Hours</h3>
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
-                      <span className="font-medium">12:00 PM to 3:30 PM <br/> <span>7:00 PM to 11:00 PM</span></span>
-                      
+                      <span className="font-medium">
+                        12–4 pm<br />
+                        6:30–11 pm
+                      </span>
                     </div>
+                    <p className="text-sm text-muted-foreground pt-1">
+                      Open all days
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -486,7 +490,13 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="font-semibold text-foreground">Hours</h4>
-                    <p className="text-muted-foreground">Lunch: 12:30 PM - 3:30 PM<br/>Dinner: 7:00 PM - 11:00 PM</p>
+                    <p className="text-muted-foreground">
+                      12–4 pm<br />
+                      6:30–11 pm
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Open all days
+                    </p>
                   </div>
                 </div>
                 
@@ -496,7 +506,7 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">080-468-10697</p>
+                    <p className="text-muted-foreground">08047363493</p>
                   </div>
                 </div>
               </div>

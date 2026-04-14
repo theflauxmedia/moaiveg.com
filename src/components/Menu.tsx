@@ -62,7 +62,7 @@ const Menu = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Every dish is crafted with passion, creativity, and the finest ingredients. 
-            Discover flavours that tell a story and create memories worth sharing.
+            Discover why guests call MOAI one of the best veg restaurants in Bangalore for vegetarian lunch, vegetarian dinner, and vegan-friendly fine dining.
           </p>
         </div>
 

@@ -51,7 +51,7 @@ const Philosophy = () => {
               
               <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
                 <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                  MOAI was born from a desire to elevate vegetarian dining into an art form. 
+                  MOAI was born from a desire to elevate vegetarian dining into an art form and be a destination for premium vegetarian dining in Bangalore. 
                   We believe in creating a serene oasis where guests can escape the everyday 
                   and connect over exceptional food.
                 </p>
@@ -61,7 +61,7 @@ const Philosophy = () => {
                   <span className="font-bold text-brand-bronze"> freshest ingredients</span>, 
                   blend global techniques with familiar traditions, and present every dish with 
                   <span className="font-bold text-brand-bronze"> creative passion</span>. 
-                  It's more than a meal; it's an experience designed to be <br/>shared and savoured.
+                  It's more than a meal; it's an experience designed to be <br/>shared and savoured for family lunches, romantic dinners, and group dining in Jayanagar.
                 </p>
                 
                 <p className="text-primary font-medium animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
