@@ -189,7 +189,13 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-2">Call Us</h3>
                         <p className="text-muted-foreground">
-                          <span className="font-medium">08047363493</span><br />
+                          <a
+                            href="tel:08047363493"
+                            className="font-medium hover:text-foreground transition-smooth"
+                          >
+                            08047363493
+                          </a>
+                          <br />
                         </p>
                       </div>
                     </div>
@@ -208,7 +214,13 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-2">Email Us</h3>
                         <p className="text-muted-foreground">
-                          <span className="font-medium">moai.eripl@gmail.com</span><br />
+                          <a
+                            href="mailto:moai.eripl@gmail.com"
+                            className="font-medium hover:text-foreground transition-smooth"
+                          >
+                            moai.eripl@gmail.com
+                          </a>
+                          <br />
                           </p>
                       </div>
                     </div>
@@ -506,7 +518,11 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">08047363493</p>
+                    <p className="text-muted-foreground">
+                      <a href="tel:08047363493" className="hover:text-foreground transition-smooth">
+                        08047363493
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
