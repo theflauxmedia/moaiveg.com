@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
+import Seo from "@/components/Seo";
+import { PAGE_SEO } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import { Card, CardContent } from "@/components/ui/card";
@@ -89,6 +91,7 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo {...PAGE_SEO.gallery} />
       <Navigation />
       
       {/* Hero Section */}
@@ -139,8 +142,9 @@ const Gallery = () => {
                 <div className="relative overflow-hidden">
                   <img 
                     src={image.src}
-                    alt={image.title}
+                    alt={`${image.title} — MOAI Restaurant ${image.category.toLowerCase()} — vegetarian fine dining Jayanagar Bangalore`}
                     className="w-full h-80 object-cover group-hover:scale-110 transition-smooth"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-smooth">
@@ -198,8 +202,9 @@ const Gallery = () => {
               <div key={index} className="relative group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <img 
                   src={image.src} 
-                  alt="User generated content" 
+                  alt="Guest photo at MOAI Restaurant — vegetarian fine dining Jayanagar Bangalore" 
                   className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-smooth"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-smooth rounded-lg flex items-center justify-center">
                   <div className="text-white text-center">
@@ -256,7 +261,9 @@ const Gallery = () => {
       {/* Back to Top Button */}
       {showBackToTop && (
         <button
+          type="button"
           onClick={scrollToTop}
+          aria-label="Back to top"
           className="fixed bottom-8 right-8 w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth z-50 animate-fade-in-up"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

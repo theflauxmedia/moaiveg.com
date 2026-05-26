@@ -126,8 +126,9 @@ const Testimonials = () => {
                         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent/30 mr-4 group-hover:border-accent transition-smooth">
                           <img 
                             src={testimonial.avatar} 
-                            alt={testimonial.name}
+                            alt={`${testimonial.name} — MOAI Restaurant guest review`}
                             className="w-full h-full object-cover"
+                            loading="lazy"
                           />
                         </div>
                         <div className="text-center">
@@ -237,8 +238,9 @@ const Testimonials = () => {
                   }`}>
                     <img 
                       src={testimonial.avatar} 
-                      alt={testimonial.name}
+                      alt={`${testimonial.name} — MOAI Restaurant guest review`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
                     />
                   </div>
                   <div className="text-center">

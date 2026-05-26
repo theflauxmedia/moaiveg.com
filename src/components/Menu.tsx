@@ -78,8 +78,9 @@ const Menu = () => {
               <div className="relative h-48 overflow-hidden rounded-t-lg">
                 <img 
                   src={category.image} 
-                  alt={category.title}
+                  alt={`${category.title} — MOAI vegetarian fine dining menu Jayanagar Bangalore`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">

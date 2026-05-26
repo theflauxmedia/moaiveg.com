@@ -29,7 +29,7 @@ const Navigation = () => {
             <a href="/" className="h-auto w-auto">
             <img 
               src="/lovable-uploads/34d5174a-8590-49de-90e8-a10dd651ed5a.png" 
-              alt="MOAI Logo" 
+              alt="MOAI Restaurant — vegetarian fine dining Jayanagar Bangalore" 
               className="h-24 w-auto"
             />
             </a>

@@ -68,7 +68,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
             {/* Header with close button */}
             <div className="flex justify-between items-center p-6 border-b border-accent/20">
               <div className="text-white">
-                <h1 className="text-2xl font-bold tracking-tight">MOAI</h1>
+                <p className="text-2xl font-bold tracking-tight">MOAI</p>
                 <p className="text-xs opacity-80 -mt-1">
                   Mingle Over Artisanal Infusion
                 </p>

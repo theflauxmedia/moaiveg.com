@@ -1,5 +1,8 @@
 import Navigation from "@/components/Navigation";
+import OutletBanner from "@/components/OutletBanner";
+import Seo from "@/components/Seo";
 import Hero from "@/components/Hero";
+import { PAGE_SEO } from "@/lib/seo";
 import Philosophy from "@/components/Philosophy";
 import Menu from "@/components/Menu";
 import Experience from "@/components/Experience";
@@ -12,7 +15,9 @@ import Credits from "@/components/Credits";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Seo {...PAGE_SEO.home} />
       <Navigation />
+      <OutletBanner />
       <Hero />
       <Philosophy />
       <Menu />

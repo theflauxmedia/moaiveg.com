@@ -27,7 +27,7 @@ const Credits = () => {
           </div>
           
           <div className="text-xs text-gray-400">
-            <p>© 2025 TheFlauxMedia. All rights reserved.</p>
+            <p>© 2026 TheFlauxMedia. All rights reserved.</p>
           </div>
         </div>
       </div>

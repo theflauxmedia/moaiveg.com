@@ -59,8 +59,9 @@ const Experience = () => {
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={experience.image} 
-                  alt={experience.title}
+                  alt={`${experience.title} — MOAI Restaurant dining experience Jayanagar Bangalore`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
+                  loading="lazy"
                 />
                 {/* Color correction overlay to reduce green tint */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent mix-blend-multiply" />

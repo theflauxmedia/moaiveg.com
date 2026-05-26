@@ -31,6 +31,7 @@ const Hero = () => {
           <div className="order-2 lg:order-1 space-y-6 lg:space-y-8 animate-luxury-slide text-center lg:text-left max-w-2xl mx-auto lg:mx-0 lg:pr-8">
             <div className="space-y-3 lg:space-y-4">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="sr-only">Premium Vegetarian Fine Dining in Jayanagar, Bangalore — </span>
                 <span className="block text-white animate-royal-entrance">Where Artistry</span>
                 <span className="block text-white shimmer-text">Meets Flavour</span>
               </h1>
@@ -49,8 +50,8 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-elegant-zoom -mt-2 sm:mt-0" style={{animationDelay: '1.5s'}}>
-              <Button variant="hero" size="lg" className="text-[#0046D3] sm:text-lg px-6 sm:px-8 py-3 sm:py-4 royal-glow">
-                Explore Our Menu
+              <Button asChild variant="hero" size="lg" className="text-[#0046D3] sm:text-lg px-6 sm:px-8 py-3 sm:py-4 royal-glow">
+                <a href="/menu">Explore Our Menu</a>
               </Button>
               {/* <Button variant="elegant" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={() => { window.location.href = "https://webbook.wegsoft.com/B34LKJHG76V"; }}>
                 Reserve a Table

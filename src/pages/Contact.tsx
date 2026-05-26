@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
+import Seo from "@/components/Seo";
+import { PAGE_SEO } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import { Card, CardContent } from "@/components/ui/card";
@@ -125,6 +127,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo {...PAGE_SEO.contact} />
       <Navigation />
       
       {/* Hero Section */}

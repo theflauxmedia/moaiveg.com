@@ -19,8 +19,9 @@ const Footer = () => {
             <div className="text-center">
               <img 
                 src="/lovable-uploads/34d5174a-8590-49de-90e8-a10dd651ed5a.png" 
-                alt="MOAI Logo" 
+                alt="MOAI Restaurant logo — premium veg fine dining Bangalore" 
                 className="h-20 w-auto mb-2"
+                loading="lazy"
               />
             </div>
             <p className="text-white/90 leading-relaxed max-w-md">
@@ -131,6 +132,7 @@ const Footer = () => {
                 href="https://www.instagram.com/moai.jayanagar/?hl=en" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow MOAI Restaurant on Instagram"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-smooth group"
               >
                 <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
@@ -143,6 +145,7 @@ const Footer = () => {
                 href="https://www.facebook.com/people/MoaiJayanagar/61575343161492/#" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow MOAI Restaurant on Facebook"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-smooth group"
               >
                 <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
@@ -155,6 +158,7 @@ const Footer = () => {
                 href="https://www.zomato.com/bangalore/moai-1-jayanagar-bangalore" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="View MOAI Restaurant on Zomato"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-smooth group"
               >
                 <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
@@ -167,6 +171,7 @@ const Footer = () => {
                 href="https://www.google.com/maps/place/Moai+-+Redefined+Vegetarian+Dining/@12.9250249,77.5839511,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!8m2!3d12.9250249!4d77.5839511!16s%2Fg%2F11x18j5thq?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Find MOAI Restaurant on Google Maps"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-smooth group"
               >
                 <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
@@ -189,8 +194,9 @@ const Footer = () => {
                 <a href={post.a} target="_blank" rel="noopener noreferrer">
                   <img 
                     src={post.image} 
-                    alt="Instagram post" 
+                    alt="MOAI Restaurant Instagram — vegetarian fine dining Jayanagar Bangalore" 
                     className="w-full h-24 object-cover rounded-lg group-hover:scale-105 transition-smooth"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-smooth rounded-lg flex items-center justify-center">
                     <div className="text-white text-center">
