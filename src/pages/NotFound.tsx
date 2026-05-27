@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Seo from "@/components/Seo";
-import { PAGE_SEO } from "@/lib/seo";
+import SEOHead from "@/components/SEOHead";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,7 +14,12 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <Seo {...PAGE_SEO.notFound} />
+      <SEOHead
+        title="Page Not Found | MOAI Restaurant"
+        description="The page you're looking for doesn't exist. Return to MOAI Restaurant's homepage."
+        canonical="https://www.moaiveg.com/404"
+        noindex
+      />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>

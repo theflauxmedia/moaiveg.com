@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
-import Seo from "@/components/Seo";
-import { PAGE_SEO } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import SEOHead from "@/components/SEOHead";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -127,10 +126,22 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Seo {...PAGE_SEO.contact} />
-      <Navigation />
+      <SEOHead
+        title="Contact MOAI Restaurant | Reservations & Group Dining, Jayanagar, Bangalore"
+        description="Contact MOAI Restaurant for reservations, group dining, corporate events, or birthday celebrations. Visit us at 790/43, 9th Main Rd, Jayanagar, Bengaluru. Call 08047363493."
+        canonical="https://www.moaiveg.com/contact"
+        breadcrumbs={[
+          { name: "Home", item: "https://www.moaiveg.com/" },
+          { name: "Contact", item: "https://www.moaiveg.com/contact" },
+        ]}
+      />
+
+      <header>
+        <Navigation />
+      </header>
       
       {/* Hero Section */}
+      <main id="main-content">
       <section className="pt-24 pb-16 bg-gradient-to-b from-primary/20 to-background">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-royal-entrance shimmer-text">
@@ -466,7 +477,7 @@ const Contact = () => {
             <Card className="gradient-card border-border/50 overflow-hidden">
               <div className="h-96 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1234567890123!2d77.58395941415071!3d12.925046385879309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d9b3b3b3b3%3A0x3b3b3b3b3b3b3b3!2sMOAI+Restaurant!5e0!3m2!1sen!2sin!4v1234567890123"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4399!2d77.5839511!3d12.9250249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!2sMoai%20-%20Redefined%20Vegetarian%20Dining!5e0!3m2!1sen!2sin!4v1700000000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -531,7 +542,7 @@ const Contact = () => {
               </div>
               
               <a 
-                href="https://maps.google.com/?q=12.925046385879309,77.58395941415071"
+                href="https://maps.google.com/?q=12.9250249,77.5839511"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
@@ -546,8 +557,12 @@ const Contact = () => {
         </div>
       </section>
 
-      <Footer />
-      <Credits />
+      </main>
+
+      <footer>
+        <Footer />
+        <Credits />
+      </footer>
     </div>
   );
 };

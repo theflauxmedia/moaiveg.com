@@ -88,10 +88,10 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
             {/* Navigation Links */}
             <nav className="flex-1 flex flex-col justify-center items-center space-y-8">
               {[
-                { href: "#menu", label: "Our Menu" },
-                { href: "#philosophy", label: "Our Philosophy" },
-                { href: "#gallery", label: "Gallery" },
-                { href: "#contact", label: "Contact" },
+                { href: "/menu", label: "Our Menu" },
+                { href: "/#philosophy", label: "Our Philosophy" },
+                { href: "/gallery", label: "Gallery" },
+                { href: "/contact", label: "Contact" },
               ].map((link, index) => (
                 <a
                   key={link.href}

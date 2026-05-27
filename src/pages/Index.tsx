@@ -1,8 +1,5 @@
 import Navigation from "@/components/Navigation";
-import OutletBanner from "@/components/OutletBanner";
-import Seo from "@/components/Seo";
 import Hero from "@/components/Hero";
-import { PAGE_SEO } from "@/lib/seo";
 import Philosophy from "@/components/Philosophy";
 import Menu from "@/components/Menu";
 import Experience from "@/components/Experience";
@@ -11,21 +8,33 @@ import Reservation from "@/components/Reservation";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
+import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Seo {...PAGE_SEO.home} />
-      <Navigation />
-      <OutletBanner />
-      <Hero />
-      <Philosophy />
-      <Menu />
-      <Experience />
-      <Reservation />
-      <FAQ />
-      <Footer />
-      <Credits />
+      <SEOHead
+        title="MOAI Restaurant | Vegetarian Fine Dining in Jayanagar, Bangalore"
+        description="MOAI is a premium pure vegetarian fine dining restaurant in Jayanagar, Bangalore. Artisanal multi-cuisine, vegan-friendly dining for families, couples, birthdays, anniversaries, and corporate groups. Open daily 12–4 PM & 6:30–11 PM."
+        canonical="https://www.moaiveg.com/"
+        ogType="restaurant"
+      />
+      <header>
+        <Navigation />
+      </header>
+      <main id="main-content">
+        <Hero />
+        <Philosophy />
+        <Menu />
+        <Experience />
+        <Testimonials />
+        <Reservation />
+        <FAQ />
+      </main>
+      <footer>
+        <Footer />
+        <Credits />
+      </footer>
     </div>
   );
 };

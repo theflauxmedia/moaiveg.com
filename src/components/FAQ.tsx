@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   const faqs = [
     {
@@ -61,7 +63,10 @@ const FAQ = () => {
     <section className="py-20 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-royal-entrance">
+        <div
+          ref={ref}
+          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 shimmer-text">
             Frequently Asked Questions
           </h2>
@@ -82,19 +87,25 @@ const FAQ = () => {
                 <CardContent className="p-0">
                   <button
                     onClick={() => toggleFAQ(index)}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`faq-answer-${index}`}
                     className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-accent/5 transition-smooth"
                   >
-                    <h3 className="text-lg font-semibold text-primary pr-4">
+                    <h3 className="text-lg font-semibold text-primary pr-4" id={`faq-question-${index}`}>
                       {faq.question}
                     </h3>
                     <ChevronDown 
                       className={`w-5 h-5 text-primary transition-transform duration-300 ${
                         openIndex === index ? 'rotate-180' : ''
                       }`}
+                      aria-hidden="true"
                     />
                   </button>
                   
                   <div 
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${index}`}
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
                       openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}

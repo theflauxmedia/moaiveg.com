@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Menu = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const menuCategories = [
     {
       title: "Artisanal Chats",
@@ -56,7 +58,10 @@ const Menu = () => {
     <section id="menu" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-royal-entrance">
+        <div
+          ref={ref}
+          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 shimmer-text">
             An Artisanal Journey
           </h2>
@@ -78,7 +83,9 @@ const Menu = () => {
               <div className="relative h-48 overflow-hidden rounded-t-lg">
                 <img 
                   src={category.image} 
-                  alt={`${category.title} — MOAI vegetarian fine dining menu Jayanagar Bangalore`}
+                  alt={`${category.title} at MOAI Restaurant, Bangalore`}
+                  width="400"
+                  height="192"
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
                   loading="lazy"
                 />

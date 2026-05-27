@@ -15,22 +15,32 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled 
-          ? "bg-primary/50 backdrop-blur-md shadow-elegant border-b border-[#FED6AB]/20" 
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-primary focus:px-4 focus:py-2 focus:rounded focus:font-semibold"
+      >
+        Skip to main content
+      </a>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
+          isScrolled
+            ? "bg-primary/50 backdrop-blur-md shadow-elegant border-b border-[#FED6AB]/20"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="text-white animate-royal-entrance h-auto w-auto">
             <a href="/" className="h-auto w-auto">
             <img 
               src="/lovable-uploads/34d5174a-8590-49de-90e8-a10dd651ed5a.png" 
-              alt="MOAI Restaurant — vegetarian fine dining Jayanagar Bangalore" 
+              alt="MOAI Restaurant logo"
+              width="200"
+              height="96"
               className="h-24 w-auto"
+              fetchPriority="high"
             />
             </a>
           </div>
@@ -74,7 +84,8 @@ const Navigation = () => {
           <MobileNav isScrolled={isScrolled} />
         </div>
       </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

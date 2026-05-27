@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
@@ -43,6 +44,7 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { ref, isVisible } = useScrollAnimation();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -71,7 +73,7 @@ const Testimonials = () => {
 
   const renderStars = (rating: number) => {
     return Array.from({ length: rating }, (_, i) => (
-      <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+      <Star key={i} className="w-4 h-4 fill-accent text-accent" aria-hidden="true" />
     ));
   };
 
@@ -80,7 +82,10 @@ const Testimonials = () => {
       <section className="py-20 bg-gradient-to-b from-muted to-background">
         <div className="container mx-auto px-6">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div
+            ref={ref}
+            className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 animate-royal-entrance">
               What Our Guests
               <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
@@ -127,8 +132,11 @@ const Testimonials = () => {
                           <img 
                             src={testimonial.avatar} 
                             alt={`${testimonial.name} — MOAI Restaurant guest review`}
+                            width="64"
+                            height="64"
                             className="w-full h-full object-cover"
                             loading="lazy"
+                            referrerPolicy="no-referrer"
                           />
                         </div>
                         <div className="text-center">
@@ -144,15 +152,17 @@ const Testimonials = () => {
             {/* Navigation Buttons */}
             <button
               onClick={prevTestimonial}
+              aria-label="Previous testimonial"
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-smooth group"
             >
-              <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" />
+              <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
             </button>
             <button
               onClick={nextTestimonial}
+              aria-label="Next testimonial"
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-smooth group"
             >
-              <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" />
+              <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
             </button>
 
             {/* Dots Indicator */}
@@ -161,6 +171,8 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-current={index === currentIndex ? "true" : "false"}
                   className={`w-2 h-2 rounded-full transition-smooth ${
                     index === currentIndex 
                       ? 'bg-accent w-6' 
@@ -180,7 +192,10 @@ const Testimonials = () => {
     <section className="py-20 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={ref}
+          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 animate-royal-entrance">
             What Our Guests
             <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
@@ -239,8 +254,11 @@ const Testimonials = () => {
                     <img 
                       src={testimonial.avatar} 
                       alt={`${testimonial.name} — MOAI Restaurant guest review`}
+                      width="64"
+                      height="64"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="text-center">
@@ -263,29 +281,34 @@ const Testimonials = () => {
         <div className="flex justify-center mt-8 gap-4">
           <button
             onClick={prevTestimonial}
+            aria-label="Previous testimonial"
             className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth group"
           >
-            <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" />
+            <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
           </button>
           <button
             onClick={nextTestimonial}
+            aria-label="Next testimonial"
             className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth group"
           >
-            <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" />
+            <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
           </button>
         </div>
 
         {/* Decorative Elements */}
         {/* Write Review Button */}
         <div className="flex justify-center mt-16">
-          <button className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:bg-accent/90 transition-smooth shadow-elegant hover:shadow-glow group">
-            <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg>
-              Write a Review
-            </span>
-          </button>
+          <a
+            href="https://www.google.com/maps/place/Moai+-+Redefined+Vegetarian+Dining/@12.9250249,77.5839511"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:bg-accent/90 transition-smooth shadow-elegant hover:shadow-glow group inline-flex items-center gap-2"
+          >
+            <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+            Write a Review on Google
+          </a>
         </div>
       </div>
     </section>

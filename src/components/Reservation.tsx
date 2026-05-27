@@ -54,7 +54,7 @@ const Reservation = () => {
             <div className="bg-white rounded-xl overflow-hidden shadow-elegant">
               <div className="h-64 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1234567890123!2d77.58395941415071!3d12.925046385879309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d9b3b3b3b3%3A0x3b3b3b3b3b3b3b3!2sMOAI+Restaurant!5e0!3m2!1sen!2sin!4v1234567890123"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4399!2d77.5839511!3d12.9250249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!2sMoai%20-%20Redefined%20Vegetarian%20Dining!5e0!3m2!1sen!2sin!4v1700000000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -71,7 +71,7 @@ const Reservation = () => {
                     <p className="text-sm text-muted-foreground">790/43, 9th Main Rd, 4th Block, Jayanagar</p>
                   </div>
                   <a 
-                    href="https://maps.google.com/?q=12.925046385879309,77.58395941415071"
+                    href="https://maps.google.com/?q=12.9250249,77.5839511"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-smooth flex items-center gap-2"

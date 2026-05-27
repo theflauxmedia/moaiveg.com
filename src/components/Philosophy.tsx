@@ -112,10 +112,17 @@ const Philosophy = () => {
                 <img
                   key={src}
                   src={src}
-                  alt="Artisanal vegetarian dishes"
+                  alt={
+                    index === 0
+                      ? "MOAI Restaurant artisanal vegetarian dishes"
+                      : "Artisanal vegetarian cuisine at MOAI Bangalore"
+                  }
+                  width="600"
+                  height="600"
                   className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
                     index === currentIndex ? 'opacity-100' : 'opacity-0'
                   } group-hover:scale-105`}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ))}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />

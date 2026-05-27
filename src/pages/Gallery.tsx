@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
-import Seo from "@/components/Seo";
-import { PAGE_SEO } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import SEOHead from "@/components/SEOHead";
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -91,10 +90,22 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Seo {...PAGE_SEO.gallery} />
-      <Navigation />
+      <SEOHead
+        title="Gallery | MOAI Restaurant Bangalore — Ambience & Food Photography"
+        description="Explore MOAI Restaurant's gallery — artisanal vegetarian dishes, serene green-themed interiors, and luxury dining ambiance in Jayanagar, Bangalore."
+        canonical="https://www.moaiveg.com/gallery"
+        ogImage="https://www.moaiveg.com/og-image-gallery.jpg"
+        breadcrumbs={[
+          { name: "Home", item: "https://www.moaiveg.com/" },
+          { name: "Gallery", item: "https://www.moaiveg.com/gallery" },
+        ]}
+      />
+      <header>
+        <Navigation />
+      </header>
       
       {/* Hero Section */}
+      <main id="main-content">
       <section className="pt-24 pb-16 bg-gradient-to-b from-primary/20 to-background">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-royal-entrance shimmer-text">
@@ -142,7 +153,9 @@ const Gallery = () => {
                 <div className="relative overflow-hidden">
                   <img 
                     src={image.src}
-                    alt={`${image.title} — MOAI Restaurant ${image.category.toLowerCase()} — vegetarian fine dining Jayanagar Bangalore`}
+                    alt={`${image.title} — ${image.description} at MOAI Restaurant, Jayanagar`}
+                    width="600"
+                    height="320"
                     className="w-full h-80 object-cover group-hover:scale-110 transition-smooth"
                     loading="lazy"
                   />
@@ -202,7 +215,9 @@ const Gallery = () => {
               <div key={index} className="relative group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <img 
                   src={image.src} 
-                  alt="Guest photo at MOAI Restaurant — vegetarian fine dining Jayanagar Bangalore" 
+                  alt={`MOAI Restaurant guest experience — ${image.user}`}
+                  width="200"
+                  height="128"
                   className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-smooth"
                   loading="lazy"
                 />
@@ -261,9 +276,7 @@ const Gallery = () => {
       {/* Back to Top Button */}
       {showBackToTop && (
         <button
-          type="button"
           onClick={scrollToTop}
-          aria-label="Back to top"
           className="fixed bottom-8 right-8 w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth z-50 animate-fade-in-up"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,9 +284,12 @@ const Gallery = () => {
           </svg>
         </button>
       )}
+      </main>
 
-      <Footer />
-      <Credits />
+      <footer>
+        <Footer />
+        <Credits />
+      </footer>
     </div>
   );
 };

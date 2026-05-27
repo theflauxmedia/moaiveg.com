@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const experiences = [
     {
       title: "A Serene Ambiance",
@@ -38,7 +40,10 @@ const Experience = () => {
     <section id="gallery" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-royal-entrance">
+        <div
+          ref={ref}
+          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 shimmer-text">
             The MOAI Experience
           </h2>
@@ -59,7 +64,9 @@ const Experience = () => {
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={experience.image} 
-                  alt={`${experience.title} — MOAI Restaurant dining experience Jayanagar Bangalore`}
+                  alt={`${experience.title} — MOAI Restaurant Jayanagar`}
+                  width="600"
+                  height="256"
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
                   loading="lazy"
                 />

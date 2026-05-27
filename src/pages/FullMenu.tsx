@@ -1,10 +1,9 @@
 import Navigation from "@/components/Navigation";
-import Seo from "@/components/Seo";
-import { PAGE_SEO } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import SEOHead from "@/components/SEOHead";
 
 const FullMenu = () => {
   const menuSections = [
@@ -174,10 +173,22 @@ const FullMenu = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Seo {...PAGE_SEO.menu} />
-      <Navigation />
+      <SEOHead
+        title="Menu | MOAI Restaurant — Artisanal Vegetarian Fine Dining Menu, Bangalore"
+        description="Discover MOAI's full vegetarian fine dining menu — artisanal chats, soups, mains, desserts, and beverages. Pure veg and vegan-friendly. Jayanagar, Bangalore."
+        canonical="https://www.moaiveg.com/menu"
+        ogImage="https://www.moaiveg.com/og-image-menu.jpg"
+        breadcrumbs={[
+          { name: "Home", item: "https://www.moaiveg.com/" },
+          { name: "Menu", item: "https://www.moaiveg.com/menu" },
+        ]}
+      />
+      <header>
+        <Navigation />
+      </header>
       
       {/* Hero Section */}
+      <main id="main-content">
       <section className="pt-24 pb-16 bg-gradient-to-b from-primary/20 to-background">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-royal-entrance shimmer-text">
@@ -287,8 +298,12 @@ const FullMenu = () => {
         </div>
       </section> */}
 
-      <Footer />
-      <Credits />
+      </main>
+
+      <footer>
+        <Footer />
+        <Credits />
+      </footer>
     </div>
   );
 };
