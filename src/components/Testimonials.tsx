@@ -14,14 +14,14 @@ const testimonials = [
     id: 2,
     name: "Sindhu Sudeendra",
     rating: 5,
-    content: "Absolutely loved this place! The veg menu is amazing — the ghee roast broccoli was unique, the Thai noodles had a perfect kick, and the Khalakund Edifice was mouthwatering. Great food, reasonable prices, and a convenient main-road location with valet parking. A must-visit for veg lovers!",
+    content: "Absolutely loved this place! The veg menu is amazing. The ghee roast broccoli was unique, the Thai noodles had a perfect kick, and the Khalakund Edifice was mouthwatering. Great food, reasonable prices, and a convenient main-road location with valet parking. A must-visit for veg lovers!",
     avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWUFU_m1k6SI9VFbPp4vdOM33FqSFw_cShd3cZ6UgIqGygOWjP3=w144-h144-p-rp-mo-ba4-br100"
   },
   {
     id: 3,
     name: "Pratiksha Mahendra",
     rating: 5,
-    content: "Moai is one of the most peaceful and aesthetic veg spots in Bangalore. Beautiful interiors, calming vibes, and simple yet delicious food — perfect for quiet conversations or solo visits. A must-visit for lovers of good veg food and ambiance!",
+    content: "Moai is one of the most peaceful and aesthetic veg spots in Bangalore. Beautiful interiors, calming vibes, and simple yet delicious food, perfect for quiet conversations or solo visits. A must-visit for lovers of good veg food and ambiance!",
     avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWdGXCrRp-QBY6fo5_ZxI2BwN48XM6EwCaLEiySsoO0uLcQkzhD=w144-h144-p-rp-mo-ba5-br100"
   },
   {
@@ -131,7 +131,7 @@ const Testimonials = () => {
                         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent/30 mr-4 group-hover:border-accent transition-smooth">
                           <img 
                             src={testimonial.avatar} 
-                            alt={`${testimonial.name} — MOAI Restaurant guest review`}
+                            alt={`${testimonial.name}, MOAI Restaurant guest review`}
                             width="64"
                             height="64"
                             className="w-full h-full object-cover"
@@ -253,7 +253,7 @@ const Testimonials = () => {
                   }`}>
                     <img 
                       src={testimonial.avatar} 
-                      alt={`${testimonial.name} — MOAI Restaurant guest review`}
+                      alt={`${testimonial.name}, MOAI Restaurant guest review`}
                       width="64"
                       height="64"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"

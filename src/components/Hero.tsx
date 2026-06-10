@@ -45,7 +45,7 @@ const Hero = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed animate-fade-in" style={{animationDelay: '1s'}}>
               Experience pure vegetarian cuisine like never before at one of the top veg restaurants in Bangalore. MOAI invites you to 
               <span className="text-white font-medium"> Mingle Over Artisanal Infusion </span>
-              in the <br/> heart of Jayanagar with luxury veg fine dining.
+              in the heart of Jayanagar, <span className="text-white font-medium">and soon in Koramangala</span>.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-elegant-zoom -mt-2 sm:mt-0" style={{animationDelay: '1.5s'}}>

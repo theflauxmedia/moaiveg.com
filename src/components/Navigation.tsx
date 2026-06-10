@@ -40,7 +40,7 @@ const Navigation = () => {
               width="200"
               height="96"
               className="h-24 w-auto"
-              fetchPriority="high"
+              fetchpriority="high"
             />
             </a>
           </div>

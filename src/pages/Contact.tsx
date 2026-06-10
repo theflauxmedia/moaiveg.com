@@ -128,7 +128,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Contact MOAI Restaurant | Reservations & Group Dining, Jayanagar, Bangalore"
-        description="Contact MOAI Restaurant for reservations, group dining, corporate events, or birthday celebrations. Visit us at 790/43, 9th Main Rd, Jayanagar, Bengaluru. Call 08047363493."
+        description="Contact MOAI Restaurant for reservations, group dining, corporate events, or birthday celebrations. Visit us at 790/43, 9th Main Rd, Jayanagar, Bengaluru. Koramangala outlet coming soon. Call 08047363493."
         canonical="https://www.moaiveg.com/contact"
         breadcrumbs={[
           { name: "Home", item: "https://www.moaiveg.com/" },
@@ -148,7 +148,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
-            We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining — we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore.
+            We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining, we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore. Koramangala, we're coming to you soon!
           </p>
         </div>
       </section>
@@ -474,27 +474,59 @@ const Contact = () => {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8">
-            <Card className="gradient-card border-border/50 overflow-hidden">
-              <div className="h-96 w-full">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4399!2d77.5839511!3d12.9250249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!2sMoai%20-%20Redefined%20Vegetarian%20Dining!5e0!3m2!1sen!2sin!4v1700000000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="MOAI Restaurant Location"
-                />
-              </div>
-            </Card>
+            <div className="space-y-8">
+              <Card className="gradient-card border-border/50 overflow-hidden">
+                <div className="relative h-96 w-full">
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-md">
+                    Jayanagar · Open Now
+                  </span>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4399!2d77.5839511!3d12.9250249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!2sMoai%20-%20Redefined%20Vegetarian%20Dining!5e0!3m2!1sen!2sin!4v1700000000000"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="MOAI Restaurant Jayanagar Location"
+                  />
+                </div>
+              </Card>
+
+              {/* Koramangala teaser map tile */}
+              <Card className="gradient-card border-border/50 overflow-hidden">
+                <div className="relative h-56 w-full">
+                  <iframe
+                    src="https://www.google.com/maps?q=Koramangala,+Bengaluru&z=13&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: "blur(3px) saturate(0.7)" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="MOAI Koramangala coming soon"
+                    tabIndex={-1}
+                    aria-hidden
+                    className="pointer-events-none select-none"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-primary/30">
+                    <div className="mx-4 rounded-xl border border-white/30 bg-black/55 px-6 py-4 text-center text-white shadow-lg backdrop-blur-md">
+                      <p className="text-lg font-bold">Koramangala</p>
+                      <p className="text-sm text-[#FED6AB]">
+                        Exact location revealing soon. Stay tuned!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
             
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Location Details</h3>
                 <p className="text-muted-foreground mb-6">
                   MOAI Restaurant is conveniently located in the heart of Jayanagar, 
-                  making it easily accessible for both locals and visitors.
+                  making it easily accessible for both locals and visitors. And we're 
+                  expanding, with our new Koramangala outlet coming soon!
                 </p>
               </div>
               

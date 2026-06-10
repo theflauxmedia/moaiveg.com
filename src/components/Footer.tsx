@@ -25,7 +25,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-white/90 leading-relaxed max-w-md">
-              Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar, Bangalore offering premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors — ideal for family meals, date nights, celebrations, and corporate group dining.
+              Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar, Bangalore, opening soon in Koramangala. We offer premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors, ideal for family meals, date nights, celebrations, and corporate group dining.
             </p>
             <div className="flex space-x-4">
               {/* <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
@@ -63,6 +63,7 @@ const Footer = () => {
                 <div>
                   <p className="font-medium">790/43, 9th Main Rd 4th Block, Jayanagar, </p>
                   <p className="text-sm">Bengaluru, Karnataka 560011</p>
+                  <p className="text-sm mt-1 text-[#FED6AB]">Koramangala (coming soon)</p>
                 </div>
               </div>
               
@@ -220,7 +221,7 @@ const Footer = () => {
                 <a href={post.a} target="_blank" rel="noopener noreferrer">
                   <img 
                     src={post.image} 
-                    alt="MOAI Restaurant — food and ambience photo"
+                    alt="MOAI Restaurant food and ambience photo"
                     width="96"
                     height="96"
                     className="w-full h-24 object-cover rounded-lg group-hover:scale-105 transition-smooth"

@@ -11,7 +11,7 @@ const LocationKoramangala = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="MOAI Restaurant Koramangala | Premium Veg Fine Dining (Coming Soon)"
-        description="MOAI is expanding to Koramangala, Bengaluru. Until then, visit our Jayanagar restaurant for premium pure vegetarian fine dining — ideal for celebrations, couples, and corporate group dining."
+        description="MOAI is expanding to Koramangala, Bengaluru. Until then, visit our Jayanagar restaurant for premium pure vegetarian fine dining, ideal for celebrations, couples, and corporate group dining."
         canonical={canonical}
         ogType="restaurant"
         breadcrumbs={[

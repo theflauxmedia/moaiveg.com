@@ -11,7 +11,7 @@ const LocationJayanagar = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="MOAI Restaurant Jayanagar | Pure Veg Fine Dining in Bengaluru"
-        description="MOAI is a premium pure vegetarian fine dining restaurant in Jayanagar, Bengaluru. Ideal for families, couples, birthdays, anniversaries, and corporate group dining — vegan-friendly options available."
+        description="MOAI is a premium pure vegetarian fine dining restaurant in Jayanagar, Bengaluru. Ideal for families, couples, birthdays, anniversaries, and corporate group dining, with vegan-friendly options available."
         canonical={canonical}
         ogType="restaurant"
         breadcrumbs={[
@@ -60,7 +60,7 @@ const LocationJayanagar = () => {
               MOAI Jayanagar
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
-              Premium pure vegetarian fine dining in Jayanagar, Bengaluru — crafted for celebrations,
+              Premium pure vegetarian fine dining in Jayanagar, Bengaluru, crafted for celebrations,
               dates, and memorable family dining.
             </p>
           </div>
@@ -121,7 +121,7 @@ const LocationJayanagar = () => {
                 If you’re searching for the best vegetarian fine dining near{" "}
                 <span className="font-medium text-foreground">Jayanagar</span> or{" "}
                 <span className="font-medium text-foreground">Koramangala</span>, MOAI is a
-                short drive away — perfect for date nights, birthdays, and corporate dinners.
+                short drive away, perfect for date nights, birthdays, and corporate dinners.
               </p>
             </div>
           </div>

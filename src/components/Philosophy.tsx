@@ -61,7 +61,7 @@ const Philosophy = () => {
                   <span className="font-bold text-brand-bronze"> freshest ingredients</span>, 
                   blend global techniques with familiar traditions, and present every dish with 
                   <span className="font-bold text-brand-bronze"> creative passion</span>. 
-                  It's more than a meal; it's an experience designed to be <br/>shared and savoured for family lunches, romantic dinners, and group dining in Jayanagar.
+                  It's more than a meal; it's an experience designed to be <br/>shared and savoured for family lunches, romantic dinners, and group dining. Now in Jayanagar, soon in Koramangala.
                 </p>
                 
                 <p className="text-primary font-medium animate-fade-in-up" style={{ animationDelay: '0.3s' }}>

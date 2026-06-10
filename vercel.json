@@ -26,6 +26,18 @@
       ]
     },
     {
+      "source": "/(food|ambinace|banners|post|lovable-uploads|theflauxmedia|icons|favicon_io)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/bgvd.webm",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
       "source": "/sitemap.xml",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600" }

@@ -64,7 +64,7 @@ const Experience = () => {
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={experience.image} 
-                  alt={`${experience.title} — MOAI Restaurant Jayanagar`}
+                  alt={`${experience.title} at MOAI Restaurant Jayanagar`}
                   width="600"
                   height="256"
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"

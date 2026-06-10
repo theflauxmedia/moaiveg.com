@@ -20,7 +20,7 @@ const Reservation = () => {
             </h2>
             
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
-              Ready to embark on a culinary journey? Reserve your table at MOAI — a premium vegetarian fine dining experience in Jayanagar, Bangalore. Perfect for family lunches, romantic veg dinners, celebrations, and corporate group dining.
+              Ready to embark on a culinary journey? Reserve your table at MOAI, a premium vegetarian fine dining experience in Jayanagar, Bangalore. Perfect for family lunches, romantic veg dinners, celebrations, and corporate group dining.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center mb-8">
@@ -69,6 +69,7 @@ const Reservation = () => {
                   <div>
                     <h3 className="font-semibold text-primary">MOAI Restaurant</h3>
                     <p className="text-sm text-muted-foreground">790/43, 9th Main Rd, 4th Block, Jayanagar</p>
+                    <p className="text-xs font-medium text-accent-foreground/80 mt-0.5">Koramangala outlet: location revealing soon</p>
                   </div>
                   <a 
                     href="https://maps.google.com/?q=12.9250249,77.5839511"

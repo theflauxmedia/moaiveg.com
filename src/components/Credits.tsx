@@ -9,6 +9,7 @@ const Credits = () => {
                 src="/theflauxmedia/whtlg.png" 
                 alt="TheFlauxMedia Logo" 
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             </div>
             <div>

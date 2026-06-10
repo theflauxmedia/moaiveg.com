@@ -14,7 +14,11 @@ const FAQ = () => {
     },
     {
       question: "Where are you located in Bangalore?",
-      answer: "We’re located in Jayanagar, Bengaluru (790/43, 9th Main Rd, 4th Block). If you’re searching for a vegetarian restaurant near me or veg restaurants near me, MOAI is easy to reach from across Bangalore."
+      answer: "We’re located in Jayanagar, Bengaluru (790/43, 9th Main Rd, 4th Block), and we’re opening a new outlet in Koramangala soon. If you’re searching for a vegetarian restaurant near me or veg restaurants near me, MOAI is easy to reach from across Bangalore."
+    },
+    {
+      question: "Is MOAI opening in Koramangala?",
+      answer: "Yes! MOAI is coming to Koramangala soon. The exact location will be revealed shortly. Follow us on Instagram @moai.jayanagar to be the first to know."
     },
     {
       question: "Is MOAI a pure vegetarian restaurant?",
@@ -39,11 +43,11 @@ const FAQ = () => {
     },
     {
       question: "Do you host birthdays, anniversaries, and romantic dinners?",
-      answer: "Yes — MOAI is a great veg restaurant in Bangalore for birthdays, anniversaries, and romantic dinners for couples. Tell us your occasion while booking and we’ll help plan the experience."
+      answer: "Yes, MOAI is a great veg restaurant in Bangalore for birthdays, anniversaries, and romantic dinners for couples. Tell us your occasion while booking and we’ll help plan the experience."
     },
     {
       question: "Do you support corporate dining and business lunches in Jayanagar?",
-      answer: "Yes. We’re a popular option for corporate dining in Bangalore — including business lunches, corporate dinners, and office team outings. Contact us for group dining and corporate event requirements."
+      answer: "Yes. We’re a popular option for corporate dining in Bangalore, including business lunches, corporate dinners, and office team outings. Contact us for group dining and corporate event requirements."
     },
     {
       question: "Do you offer catering services?",

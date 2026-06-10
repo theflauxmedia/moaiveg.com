@@ -91,8 +91,8 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Gallery | MOAI Restaurant Bangalore — Ambience & Food Photography"
-        description="Explore MOAI Restaurant's gallery — artisanal vegetarian dishes, serene green-themed interiors, and luxury dining ambiance in Jayanagar, Bangalore."
+        title="Gallery | MOAI Restaurant Bangalore, Ambience & Food Photography"
+        description="Explore MOAI Restaurant's gallery of artisanal vegetarian dishes, serene green-themed interiors, and luxury dining ambiance in Jayanagar, Bangalore. Koramangala outlet coming soon."
         canonical="https://www.moaiveg.com/gallery"
         ogImage="https://www.moaiveg.com/og-image-gallery.jpg"
         breadcrumbs={[
@@ -153,7 +153,7 @@ const Gallery = () => {
                 <div className="relative overflow-hidden">
                   <img 
                     src={image.src}
-                    alt={`${image.title} — ${image.description} at MOAI Restaurant, Jayanagar`}
+                    alt={`${image.title}: ${image.description} at MOAI Restaurant, Jayanagar`}
                     width="600"
                     height="320"
                     className="w-full h-80 object-cover group-hover:scale-110 transition-smooth"
@@ -215,7 +215,7 @@ const Gallery = () => {
               <div key={index} className="relative group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <img 
                   src={image.src} 
-                  alt={`MOAI Restaurant guest experience — ${image.user}`}
+                  alt={`MOAI Restaurant guest experience by ${image.user}`}
                   width="200"
                   height="128"
                   className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-smooth"
