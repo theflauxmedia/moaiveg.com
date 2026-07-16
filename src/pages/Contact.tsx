@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
+import PageHero from "@/components/motion/PageHero";
+import Reveal from "@/components/motion/Reveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import SEOHead from "@/components/SEOHead";
+import { fadeLeft, fadeRight, premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -142,16 +146,10 @@ const Contact = () => {
       
       {/* Hero Section */}
       <main id="main-content">
-      <section className="pt-24 pb-16 bg-gradient-to-b from-primary/20 to-background">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-royal-entrance shimmer-text">
-            Contact Us
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
-            We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining, we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore. Koramangala, we're coming to you soon!
-          </p>
-        </div>
-      </section>
+        <PageHero
+          title="Contact Us"
+          description="We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining, we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore. Koramangala, we're coming to you soon!"
+        />
 
       {/* Contact Content */}
       <section className="py-20">
@@ -159,8 +157,14 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-16">
             
             {/* Contact Information */}
-            <div className="space-y-8 animate-luxury-slide">
-              <div>
+            <motion.div
+              className="space-y-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              <motion.div variants={staggerItem}>
                 <h2 className="text-3xl font-bold text-primary mb-6 shimmer-text">
                   Get in Touch
                 </h2>
@@ -168,81 +172,57 @@ const Contact = () => {
                   Our team is here to assist you with reservations, special requests, 
                   or any questions about our pure vegetarian and vegan-friendly fine dining experience in Bengaluru.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Contact Cards */}
               <div className="space-y-6">
+                {[
+                  {
+                    title: "Visit Us",
+                    content: <>790/43, 9th Main Rd<br/>4th Block, Jayanagar<br/>Bengaluru, Karnataka 560011</>,
+                    icon: <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />,
+                    fill: true,
+                  },
+                  {
+                    title: "Call Us",
+                    content: <a href="tel:08047363493" className="font-medium hover:text-foreground transition-smooth">08047363493</a>,
+                    icon: <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />,
+                    fill: true,
+                  },
+                  {
+                    title: "Email Us",
+                    content: <a href="mailto:moai.eripl@gmail.com" className="font-medium hover:text-foreground transition-smooth">moai.eripl@gmail.com</a>,
+                    icon: (
+                      <>
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                      </>
+                    ),
+                    fill: true,
+                  },
+                ].map((card) => (
+                  <motion.div key={card.title} variants={staggerItem} whileHover={{ x: 6 }} transition={{ duration: 0.35, ease: premiumEase }}>
                 <Card className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                        <svg className="w-6 h-6 text-primary" fill={card.fill ? "currentColor" : "none"} stroke={card.fill ? undefined : "currentColor"} viewBox="0 0 20 20">
+                          {card.icon}
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">Visit Us</h3>
-                        <p className="text-muted-foreground">
-                        790/43, 9th Main Rd<br/>
-                         4th Block, Jayanagar<br/>
-                         Bengaluru, Karnataka 560011
-                        </p>
+                        <h3 className="text-xl font-bold text-foreground mb-2">{card.title}</h3>
+                        <p className="text-muted-foreground">{card.content}</p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-
-                <Card className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-primary/10 p-3 rounded-lg">
-                        <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">Call Us</h3>
-                        <p className="text-muted-foreground">
-                          <a
-                            href="tel:08047363493"
-                            className="font-medium hover:text-foreground transition-smooth"
-                          >
-                            08047363493
-                          </a>
-                          <br />
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-primary/10 p-3 rounded-lg">
-                        <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">Email Us</h3>
-                        <p className="text-muted-foreground">
-                          <a
-                            href="mailto:moai.eripl@gmail.com"
-                            className="font-medium hover:text-foreground transition-smooth"
-                          >
-                            moai.eripl@gmail.com
-                          </a>
-                          <br />
-                          </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                  </motion.div>
+                ))}
               </div>
 
               {/* Hours */}
+              <motion.div variants={staggerItem}>
               <Card className="gradient-card border-border/50">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-foreground mb-4">Opening Hours</h3>
@@ -259,28 +239,50 @@ const Contact = () => {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="animate-elegant-zoom">
+            <Reveal variants={fadeRight} delay={0.1}>
+              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.4, ease: premiumEase }}>
               <Card className="gradient-card border-border/50 shadow-elegant royal-border">
                 <CardContent className="p-8">
                   <h2 className="text-3xl font-bold text-primary mb-6 shimmer-text">
                     Send Us a Message
                   </h2>
                   
+                  <AnimatePresence mode="wait">
                   {isSubmitted ? (
-                    <div className="text-center py-8 animate-success-bounce">
-                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <motion.div
+                      key="success"
+                      className="text-center py-8"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.45, ease: premiumEase }}
+                    >
+                      <motion.div
+                        className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.1 }}
+                      >
                         <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                      </div>
+                      </motion.div>
                       <h3 className="text-xl font-bold text-green-600 mb-2">Message Sent!</h3>
                       <p className="text-muted-foreground">Thanks! We'll get back to you shortly.</p>
-                    </div>
+                    </motion.div>
                   ) : (
-                    <form className="space-y-6" onSubmit={handleSubmit}>
+                    <motion.form
+                      key="form"
+                      className="space-y-6"
+                      onSubmit={handleSubmit}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="firstName">First Name</Label>
@@ -447,18 +449,22 @@ const Contact = () => {
                         )}
                       </div>
                       
+                      <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
                       <Button 
                         type="submit" 
                         size="lg" 
-                        className="w-full animate-bounce-elegant"
+                        className="w-full"
                       >
                         Send Message
                       </Button>
-                    </form>
+                      </motion.div>
+                    </motion.form>
                   )}
+                  </AnimatePresence>
                 </CardContent>
               </Card>
-            </div>
+              </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -466,15 +472,22 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-20 bg-gradient-to-r from-primary/5 to-[#FED6AB]/5">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">Find Us</h2>
             <p className="text-lg text-muted-foreground">
               Located in the heart of the culinary district, easily accessible by public transport
             </p>
-          </div>
+          </Reveal>
           
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="space-y-8">
+            <motion.div
+              className="space-y-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+            >
+              <motion.div variants={staggerItem} whileHover={{ y: -4 }} transition={{ duration: 0.4, ease: premiumEase }}>
               <Card className="gradient-card border-border/50 overflow-hidden">
                 <div className="relative h-96 w-full">
                   <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-md">
@@ -492,8 +505,9 @@ const Contact = () => {
                   />
                 </div>
               </Card>
+              </motion.div>
 
-              {/* Koramangala teaser map tile */}
+              <motion.div variants={staggerItem} whileHover={{ y: -4 }} transition={{ duration: 0.4, ease: premiumEase }}>
               <Card className="gradient-card border-border/50 overflow-hidden">
                 <div className="relative h-56 w-full">
                   <iframe
@@ -518,9 +532,10 @@ const Contact = () => {
                   </div>
                 </div>
               </Card>
-            </div>
+              </motion.div>
+            </motion.div>
             
-            <div className="space-y-6">
+            <Reveal variants={fadeLeft} delay={0.15} className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Location Details</h3>
                 <p className="text-muted-foreground mb-6">
@@ -573,18 +588,20 @@ const Contact = () => {
                 </div>
               </div>
               
-              <a 
+              <motion.a 
                 href="https://maps.google.com/?q=12.9250249,77.5839511"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3" />
                 </svg>
                 Get Directions
-              </a>
-            </div>
+              </motion.a>
+            </Reveal>
           </div>
         </div>
       </section>

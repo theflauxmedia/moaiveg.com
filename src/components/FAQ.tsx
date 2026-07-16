@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Reveal from "@/components/motion/Reveal";
+import { premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const { ref, isVisible } = useScrollAnimation();
 
   const faqs = [
     {
@@ -67,10 +68,7 @@ const FAQ = () => {
     <section className="py-20 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div
-          ref={ref}
-          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
-        >
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 shimmer-text">
             Frequently Asked Questions
           </h2>
@@ -78,74 +76,91 @@ const FAQ = () => {
             Find answers to common questions about dining at MOAI. 
             If you don't see what you're looking for, feel free to contact us directly.
           </p>
-        </div>
+        </Reveal>
 
-        {/* FAQ Grid */}
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-4">
+        <motion.div
+          className="max-w-4xl mx-auto space-y-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+        >
             {faqs.map((faq, index) => (
+              <motion.div key={index} variants={staggerItem}>
               <Card 
-                key={index}
-                className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border"
+                className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border overflow-hidden"
               >
                 <CardContent className="p-0">
-                  <button
+                  <motion.button
                     onClick={() => toggleFAQ(index)}
                     aria-expanded={openIndex === index}
                     aria-controls={`faq-answer-${index}`}
                     className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-accent/5 transition-smooth"
+                    whileTap={{ scale: 0.995 }}
                   >
                     <h3 className="text-lg font-semibold text-primary pr-4" id={`faq-question-${index}`}>
                       {faq.question}
                     </h3>
-                    <ChevronDown 
-                      className={`w-5 h-5 text-primary transition-transform duration-300 ${
-                        openIndex === index ? 'rotate-180' : ''
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </button>
+                    <motion.div
+                      animate={{ rotate: openIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.35, ease: premiumEase }}
+                    >
+                      <ChevronDown 
+                        className="w-5 h-5 text-primary"
+                        aria-hidden="true"
+                      />
+                    </motion.div>
+                  </motion.button>
                   
-                  <div 
-                    id={`faq-answer-${index}`}
-                    role="region"
-                    aria-labelledby={`faq-question-${index}`}
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="px-6 pb-6">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
+                  <AnimatePresence initial={false}>
+                    {openIndex === index && (
+                      <motion.div
+                        id={`faq-answer-${index}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${index}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: premiumEase }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6">
+                          <p className="text-muted-foreground leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
-          </div>
-        </div>
+        </motion.div>
 
-        {/* Contact CTA */}
-        <div className="text-center mt-12">
+        <Reveal className="text-center mt-12" delay={0.1}>
           <p className="text-muted-foreground mb-4">
             Still have questions? We're here to help!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <motion.a 
               href="/contact"
               className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
               Contact Us
-            </a>
-            <a 
+            </motion.a>
+            <motion.a 
               href="tel:08047363493"
               className="border border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-lg font-medium transition-smooth"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
               Call Now
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

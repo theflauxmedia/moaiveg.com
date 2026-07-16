@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
-// import { Button } from "@/components/ui/button";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
 
-interface MobileNavProps {
-  isScrolled: boolean;
-}
+const navLinks = [
+  { href: "/menu", label: "Our Menu" },
+  { href: "/#philosophy", label: "Our Philosophy" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/press", label: "Press" },
+  { href: "/contact", label: "Contact" },
+];
 
-const MobileNav = ({ isScrolled }: MobileNavProps) => {
+const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  // Close menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false);
-      }
+      if (e.key === "Escape" && isOpen) setIsOpen(false);
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
@@ -31,93 +33,99 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
 
   return (
     <div className="md:hidden">
-      {/* Hamburger Button */}
-      <button
+      <motion.button
         onClick={toggleMenu}
         className="p-2 text-white hover:text-accent transition-smooth"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
+        whileTap={{ scale: 0.92 }}
       >
         <div className="w-6 h-6 relative">
-          <span
-            className={`absolute left-0 top-1 w-6 h-0.5 bg-current transition-all duration-300 ${
-              isOpen ? "rotate-45 top-3" : ""
-            }`}
+          <motion.span
+            className="absolute left-0 top-1 w-6 h-0.5 bg-current"
+            animate={isOpen ? { rotate: 45, top: 12 } : { rotate: 0, top: 4 }}
+            transition={{ duration: 0.3, ease: premiumEase }}
           />
-          <span
-            className={`absolute left-0 top-3 w-6 h-0.5 bg-current transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
+          <motion.span
+            className="absolute left-0 top-3 w-6 h-0.5 bg-current"
+            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.2 }}
           />
-          <span
-            className={`absolute left-0 top-5 w-6 h-0.5 bg-current transition-all duration-300 ${
-              isOpen ? "-rotate-45 top-3" : ""
-            }`}
+          <motion.span
+            className="absolute left-0 top-5 w-6 h-0.5 bg-current"
+            animate={isOpen ? { rotate: -45, top: 12 } : { rotate: 0, top: 20 }}
+            transition={{ duration: 0.3, ease: premiumEase }}
           />
         </div>
-      </button>
+      </motion.button>
 
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div
-          id="mobile-menu"
-          className="fixed inset-0 z-[9999] bg-primary/95 backdrop-blur-lg"
-        >
-          <div className="flex flex-col h-full">
-            {/* Header with close button */}
-            <div className="flex justify-between items-center p-6 border-b border-accent/20">
-              <div className="text-white">
-                <p className="text-2xl font-bold tracking-tight">MOAI</p>
-                <p className="text-xs opacity-80 -mt-1">
-                  Mingle Over Artisanal Infusion
-                </p>
-              </div>
-              <button
-                onClick={toggleMenu}
-                className="p-2 text-white hover:text-accent transition-smooth"
-                aria-label="Close menu"
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              id="mobile-menu"
+              className="fixed inset-0 z-[9999] bg-[#004F00]"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: premiumEase }}
+            >
+              <motion.div
+                className="flex h-full flex-col"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ duration: 0.4, ease: premiumEase }}
               >
-                <div className="w-6 h-6 relative">
-                  <span className="absolute left-0 top-3 w-6 h-0.5 bg-current rotate-45" />
-                  <span className="absolute left-0 top-3 w-6 h-0.5 bg-current -rotate-45" />
+                <div className="flex items-center justify-between border-b border-accent/20 p-6">
+                  <div className="text-white">
+                    <p className="text-2xl font-bold tracking-tight">MOAI</p>
+                    <p className="-mt-1 text-xs opacity-80">
+                      Mingle Over Artisanal Infusion
+                    </p>
+                  </div>
+                  <motion.button
+                    onClick={toggleMenu}
+                    className="p-2 text-white transition-smooth hover:text-accent"
+                    aria-label="Close menu"
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <div className="relative h-6 w-6">
+                      <span className="absolute left-0 top-3 h-0.5 w-6 rotate-45 bg-current" />
+                      <span className="absolute left-0 top-3 h-0.5 w-6 -rotate-45 bg-current" />
+                    </div>
+                  </motion.button>
                 </div>
-              </button>
-            </div>
 
-            {/* Navigation Links */}
-            <nav className="flex-1 flex flex-col justify-center items-center space-y-8">
-              {[
-                { href: "/menu", label: "Our Menu" },
-                { href: "/#philosophy", label: "Our Philosophy" },
-                { href: "/gallery", label: "Gallery" },
-                { href: "/contact", label: "Contact" },
-              ].map((link, index) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={toggleMenu}
-                  className="text-white text-2xl font-medium hover:text-accent transition-smooth animate-luxury-slide motion-safe:animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                <motion.nav
+                  className="flex flex-1 flex-col items-center justify-center space-y-8"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  {link.label}
-                </a>
-              ))}
-
-              {/* <div className="pt-8">
-                <Button
-                  variant="hero"
-                  size="lg"
-                  className="animate-royal-entrance motion-safe:animate-fade-in"
-                  style={{ animationDelay: "0.4s" }}
-                  onClick={() => { window.location.href = "https://webbook.wegsoft.com/B34LKJHG76V"; }}
-                >
-                  Reserve a Table
-                </Button>
-              </div> */}
-            </nav>
-          </div>
-        </div>
+                  {navLinks.map((link) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={toggleMenu}
+                      className="text-2xl font-medium text-white transition-smooth hover:text-[#FED6AB]"
+                      variants={staggerItem}
+                      whileHover={{ x: 6 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      {link.label}
+                    </motion.a>
+                  ))}
+                </motion.nav>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body,
       )}
     </div>
   );

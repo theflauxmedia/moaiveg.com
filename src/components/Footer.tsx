@@ -47,6 +47,7 @@ const Footer = () => {
               <a href="/" className="block text-white/80 hover:text-white transition-smooth">Home</a>
               <a href="/menu" className="block text-white/80 hover:text-white transition-smooth">Our Menu</a>
               <a href="/gallery" className="block text-white/80 hover:text-white transition-smooth">Gallery</a>
+              <a href="/press" className="block text-white/80 hover:text-white transition-smooth">Press</a>
               <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Contact</a>
               <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Reservations</a>
             </nav>

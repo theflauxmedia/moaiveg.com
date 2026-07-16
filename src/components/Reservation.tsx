@@ -1,4 +1,7 @@
 // import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Reveal from "@/components/motion/Reveal";
+import { fadeLeft, fadeRight, premiumEase } from "@/lib/motion";
 
 const Reservation = () => {
   return (
@@ -13,8 +16,8 @@ const Reservation = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-royal-entrance">
+          <Reveal variants={fadeLeft} className="text-center lg:text-left">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Join Us for an 
               <span className="block mb-2 bg-gradient-to-r from-[#FED6AB] to-[#FFE3C2] text-transparent bg-clip-text">Unforgettable Meal</span>
             </h2>
@@ -47,11 +50,14 @@ const Reservation = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Mini Google Maps Frame */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white rounded-xl overflow-hidden shadow-elegant">
+          <Reveal variants={fadeRight} delay={0.15}>
+            <motion.div
+              className="bg-white rounded-xl overflow-hidden shadow-elegant"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, ease: premiumEase }}
+            >
               <div className="h-64 w-full">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4399!2d77.5839511!3d12.9250249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae151bcbeb2d51:0xf4bad52596dbecf3!2sMoai%20-%20Redefined%20Vegetarian%20Dining!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -84,8 +90,8 @@ const Reservation = () => {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

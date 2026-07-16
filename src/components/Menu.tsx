@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Reveal from "@/components/motion/Reveal";
+import { premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
 
 const Menu = () => {
-  const { ref, isVisible } = useScrollAnimation();
   const menuCategories = [
     {
       title: "Artisanal Chats",
@@ -10,15 +11,15 @@ const Menu = () => {
       items: [
         {
           name: "Creamy Avocado Chattak Puri",
-          description: "A delightful fusion of creamy avocado on a crispy puri base with tangy chutneys",
-          //price: "₹285"
+          description:
+            "A delightful fusion of creamy avocado on a crispy puri base with tangy chutneys",
         },
         {
-          name: "Nadru Burrata Papdi Chat", 
-          description: "Crispy lotus stem and fresh burrata cheese on a classic papdi with mint chutney",
-          //price: "₹325"
-        }
-      ]
+          name: "Nadru Burrata Papdi Chat",
+          description:
+            "Crispy lotus stem and fresh burrata cheese on a classic papdi with mint chutney",
+        },
+      ],
     },
     {
       title: "Small Plates",
@@ -26,15 +27,15 @@ const Menu = () => {
       items: [
         {
           name: "Amaranth Coated Hara Bhara Kebab",
-          description: "A healthy twist on a classic, coated in nutritious amaranth with yogurt dip",
-          //price: "₹275"
+          description:
+            "A healthy twist on a classic, coated in nutritious amaranth with yogurt dip",
         },
         {
           name: "Memory Lane Cheese Fondue",
-          description: "A comforting and shareable classic, perfect for mingling with artisanal bread",
-          //price: "₹425"
-        }
-      ]
+          description:
+            "A comforting and shareable classic, perfect for mingling with artisanal bread",
+        },
+      ],
     },
     {
       title: "Soups & Salads",
@@ -42,99 +43,113 @@ const Menu = () => {
       items: [
         {
           name: "Turkish Shepherd's Salad",
-          description: "A refreshing and vibrant mix of fresh vegetables with olive oil and herbs",
-          // price: "₹245"
+          description:
+            "A refreshing and vibrant mix of fresh vegetables with olive oil and herbs",
         },
         {
           name: "Creamy Corn Soup with Kurkure Chat",
-          description: "A playful and textural soup experience with crispy kurkure toppings",
-          // price: "₹225"
-        }
-      ]
-    }
+          description:
+            "A playful and textural soup experience with crispy kurkure toppings",
+        },
+      ],
+    },
   ];
 
   return (
     <section id="menu" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div
-          ref={ref}
-          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
-        >
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 shimmer-text">
             An Artisanal Journey
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Every dish is crafted with passion, creativity, and the finest ingredients. 
-            Discover why guests call MOAI one of the best veg restaurants in Bangalore for vegetarian lunch, vegetarian dinner, and vegan-friendly fine dining.
+            Every dish is crafted with passion, creativity, and the finest ingredients.
+            Discover why guests call MOAI one of the best veg restaurants in Bangalore for
+            vegetarian lunch, vegetarian dinner, and vegan-friendly fine dining.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Menu Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {menuCategories.map((category, index) => (
-            <Card 
-              key={index} 
-              className="gradient-card border-border/50 hover:shadow-elegant transition-smooth animate-elegant-zoom royal-border hover:royal-glow hover-lift group"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Category Image */}
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
-                <img 
-                  src={category.image} 
-                  alt={`${category.title} at MOAI Restaurant, Bangalore`}
-                  width="400"
-                  height="192"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">
-                    {category.title}
-                  </h3>
-                </div>
-              </div>
-              
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  {category.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="group/item">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-semibold text-foreground group-hover/item:text-primary transition-smooth">
-                          {item.name}
-                        </h4>
-                        <span className="text-brand-bronze font-bold text-lg ml-4 flex-shrink-0">
-                          {item.price}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground/80 transition-smooth">
-                        {item.description}
-                      </p>
-                      
-                      {itemIndex < category.items.length - 1 && (
-                        <hr className="mt-6 border-border" />
-                      )}
+        <motion.div
+          className="grid lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {menuCategories.map((category) => (
+            <motion.div key={category.title} variants={staggerItem}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.4, ease: premiumEase }}
+              >
+                <Card className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border hover:royal-glow overflow-hidden h-full">
+                  <div className="relative h-48 overflow-hidden rounded-t-lg">
+                    <motion.img
+                      src={category.image}
+                      alt={`${category.title} at MOAI Restaurant, Bangalore`}
+                      width="400"
+                      height="192"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.7, ease: premiumEase }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                        {category.title}
+                      </h3>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  </div>
 
-        {/* View Full Menu CTA */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-light transition-smooth cursor-pointer group">
-            <a href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484" className="flex items-center gap-2 hover:scale-105 transition-smooth">
-              <span>View Complete Menu</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+                  <CardContent className="p-8">
+                    <div className="space-y-6">
+                      {category.items.map((item, itemIndex) => (
+                        <div key={item.name} className="group/item">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-semibold text-foreground group-hover/item:text-primary transition-smooth">
+                              {item.name}
+                            </h4>
+                          </div>
+                          <p className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground/80 transition-smooth">
+                            {item.description}
+                          </p>
+                          {itemIndex < category.items.length - 1 && (
+                            <hr className="mt-6 border-border" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <Reveal className="text-center mt-12" delay={0.2}>
+          <motion.a
+            href="https://qr.mydigimenu.com/9f518a11-b937-484c-a019-0d326dc0e484"
+            className="inline-flex items-center gap-2 text-primary font-medium group"
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.3, ease: premiumEase }}
+          >
+            <span>View Complete Menu</span>
+            <svg
+              className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </motion.a>
+        </Reveal>
       </div>
     </section>
   );
