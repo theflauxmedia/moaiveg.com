@@ -342,4 +342,26 @@
   .animate-success-bounce {
     animation: success-bounce 1s ease-in-out;
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-text {
+      animation: none !important;
+    }
+
+    .transition-smooth,
+    .hover-lift,
+    .carousel-slide {
+      transition: none !important;
+    }
+
+    .animate-royal-entrance,
+    .animate-luxury-slide,
+    .animate-fade-in,
+    .animate-success-bounce {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }

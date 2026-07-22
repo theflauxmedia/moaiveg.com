@@ -175,7 +175,7 @@ const FullMenu = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Menu | MOAI Restaurant, Artisanal Vegetarian Fine Dining, Bangalore"
-        description="Discover MOAI's full vegetarian fine dining menu: artisanal chats, soups, mains, desserts, and beverages. Pure veg and vegan-friendly. Jayanagar, Bangalore. Koramangala coming soon."
+        description="Discover MOAI's full vegetarian fine dining menu: artisanal chats, soups, mains, desserts, and beverages. Pure veg and vegan-friendly. Now serving Jayanagar and Koramangala 5th Block, Bangalore."
         canonical="https://www.moaiveg.com/menu"
         ogImage="https://www.moaiveg.com/og-image-menu.jpg"
         breadcrumbs={[

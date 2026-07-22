@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Reveal from "@/components/motion/Reveal";
-import { premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
+import {
+  hoverLift,
+  premiumEase,
+  softSpring,
+  staggerContainer,
+  staggerItemScale,
+} from "@/lib/motion";
 
 const Menu = () => {
   const menuCategories = [
@@ -77,11 +83,8 @@ const Menu = () => {
           viewport={{ once: true, margin: "-60px" }}
         >
           {menuCategories.map((category) => (
-            <motion.div key={category.title} variants={staggerItem}>
-              <motion.div
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.4, ease: premiumEase }}
-              >
+            <motion.div key={category.title} variants={staggerItemScale}>
+              <motion.div whileHover={hoverLift} transition={softSpring}>
                 <Card className="gradient-card border-border/50 hover:shadow-elegant transition-smooth royal-border hover:royal-glow overflow-hidden h-full">
                   <div className="relative h-48 overflow-hidden rounded-t-lg">
                     <motion.img
@@ -91,8 +94,8 @@ const Menu = () => {
                       height="192"
                       className="w-full h-full object-cover"
                       loading="lazy"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.7, ease: premiumEase }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.75, ease: premiumEase }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                     <div className="absolute bottom-4 left-4">

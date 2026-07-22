@@ -25,7 +25,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-white/90 leading-relaxed max-w-md">
-              Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar, Bangalore, opening soon in Koramangala. We offer premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors, ideal for family meals, date nights, celebrations, and corporate group dining.
+              Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar and Koramangala, Bangalore. We offer premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors, ideal for family meals, date nights, celebrations, and corporate group dining.
             </p>
             <div className="flex space-x-4">
               {/* <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
@@ -48,6 +48,8 @@ const Footer = () => {
               <a href="/menu" className="block text-white/80 hover:text-white transition-smooth">Our Menu</a>
               <a href="/gallery" className="block text-white/80 hover:text-white transition-smooth">Gallery</a>
               <a href="/press" className="block text-white/80 hover:text-white transition-smooth">Press</a>
+              <a href="/locations/jayanagar" className="block text-white/80 hover:text-white transition-smooth">Jayanagar</a>
+              <a href="/locations/koramangala" className="block text-white/80 hover:text-white transition-smooth">Koramangala</a>
               <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Contact</a>
               <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Reservations</a>
             </nav>
@@ -62,22 +64,25 @@ const Footer = () => {
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <div>
-                  <p className="font-medium">790/43, 9th Main Rd 4th Block, Jayanagar, </p>
-                  <p className="text-sm">Bengaluru, Karnataka 560011</p>
-                  <p className="text-sm mt-1 text-[#FED6AB]">Koramangala (coming soon)</p>
+                  <p className="font-medium">Jayanagar</p>
+                  <p className="text-sm">790/43, 9th Main Rd, 4th Block, Bengaluru 560011</p>
+                  <p className="font-medium mt-3">Koramangala 5th Block</p>
+                  <p className="text-sm">134, 17th Main Road, Bengaluru 560095</p>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.502 1.21l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <a
-                  href="tel:08047363493"
-                  className="hover:text-white transition-smooth"
-                >
-                  08047363493
-                </a>
+                <div className="space-y-1">
+                  <a href="tel:08047363493" className="block hover:text-white transition-smooth">
+                    Jayanagar: 08047363493
+                  </a>
+                  <a href="tel:08047282414" className="block hover:text-white transition-smooth">
+                    Koramangala: 080 472 82414
+                  </a>
+                </div>
               </div>
               
               <div className="flex items-center space-x-3">
@@ -144,10 +149,20 @@ const Footer = () => {
               </svg>
               Dining Hours
             </h4>
-            <div className="bg-white/10 rounded-lg p-4 space-y-2 text-white/90">
-              <div className="flex justify-between items-center">
-                <span className="font-medium">All Days</span>
-                <span>12–4 pm<br />6:30–11 pm</span>
+            <div className="bg-white/10 rounded-lg p-4 space-y-3 text-white/90">
+              <div>
+                <p className="font-medium mb-1">Jayanagar</p>
+                <div className="flex justify-between items-start text-sm">
+                  <span>All Days</span>
+                  <span className="text-right">12–4 pm<br />6:30–11 pm</span>
+                </div>
+              </div>
+              <div className="border-t border-white/20 pt-3">
+                <p className="font-medium mb-1">Koramangala</p>
+                <div className="flex justify-between items-start text-sm">
+                  <span>All Days</span>
+                  <span className="text-right">12–4 pm<br />6:30 pm–12 midnight</span>
+                </div>
               </div>
             </div>
           </div>

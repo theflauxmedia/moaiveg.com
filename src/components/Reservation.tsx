@@ -74,8 +74,10 @@ const Reservation = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="font-semibold text-primary">MOAI Restaurant</h3>
-                    <p className="text-sm text-muted-foreground">790/43, 9th Main Rd, 4th Block, Jayanagar</p>
-                    <p className="text-xs font-medium text-accent-foreground/80 mt-0.5">Koramangala outlet: location revealing soon</p>
+                    <p className="text-sm text-muted-foreground">Jayanagar · 790/43, 9th Main Rd, 4th Block</p>
+                    <p className="text-xs font-medium text-accent-foreground/80 mt-0.5">
+                      Also open in Koramangala 5th Block · 134, 17th Main Road
+                    </p>
                   </div>
                   <a 
                     href="https://maps.google.com/?q=12.9250249,77.5839511"

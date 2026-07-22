@@ -52,7 +52,7 @@ const Gallery = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Gallery | MOAI Restaurant Bangalore, Ambience & Food Photography"
-        description="Explore MOAI Restaurant's gallery of artisanal vegetarian dishes, serene green-themed interiors, and luxury dining ambiance in Jayanagar, Bangalore. Koramangala outlet coming soon."
+        description="Explore MOAI Restaurant's gallery of artisanal vegetarian dishes, serene green-themed interiors, and luxury dining ambiance in Jayanagar and Koramangala, Bangalore."
         canonical="https://www.moaiveg.com/gallery"
         ogImage="https://www.moaiveg.com/og-image-gallery.jpg"
         breadcrumbs={[

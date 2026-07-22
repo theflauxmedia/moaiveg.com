@@ -1,318 +1,315 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Reveal from "@/components/motion/Reveal";
+import {
+  hoverScale,
+  premiumEase,
+  softSpring,
+  staggerContainer,
+  staggerItemScale,
+  tapPress,
+} from "@/lib/motion";
 
 const testimonials = [
   {
     id: 1,
     name: "Anunay Thakur",
     rating: 5,
-    content: "A great spot for vegetarians with flavorful food and a delightful ambiance. What stood out was the exceptional service by Vicky, whose attentiveness left a lasting impression. Hope they maintain their high standards.",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVcWp7X0u7t-NUyBPhr57XAblDSX4qmbK5nvhFIXquREXeYh4WwVg=w144-h144-p-rp-mo-ba3-br100"
+    content:
+      "A great spot for vegetarians with flavorful food and a delightful ambiance. What stood out was the exceptional service by Vicky, whose attentiveness left a lasting impression. Hope they maintain their high standards.",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVcWp7X0u7t-NUyBPhr57XAblDSX4qmbK5nvhFIXquREXeYh4WwVg=w144-h144-p-rp-mo-ba3-br100",
   },
   {
     id: 2,
     name: "Sindhu Sudeendra",
     rating: 5,
-    content: "Absolutely loved this place! The veg menu is amazing. The ghee roast broccoli was unique, the Thai noodles had a perfect kick, and the Khalakund Edifice was mouthwatering. Great food, reasonable prices, and a convenient main-road location with valet parking. A must-visit for veg lovers!",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWUFU_m1k6SI9VFbPp4vdOM33FqSFw_cShd3cZ6UgIqGygOWjP3=w144-h144-p-rp-mo-ba4-br100"
+    content:
+      "Absolutely loved this place! The veg menu is amazing. The ghee roast broccoli was unique, the Thai noodles had a perfect kick, and the Khalakund Edifice was mouthwatering. Great food, reasonable prices, and a convenient main-road location with valet parking. A must-visit for veg lovers!",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjWUFU_m1k6SI9VFbPp4vdOM33FqSFw_cShd3cZ6UgIqGygOWjP3=w144-h144-p-rp-mo-ba4-br100",
   },
   {
     id: 3,
     name: "Pratiksha Mahendra",
     rating: 5,
-    content: "Moai is one of the most peaceful and aesthetic veg spots in Bangalore. Beautiful interiors, calming vibes, and simple yet delicious food, perfect for quiet conversations or solo visits. A must-visit for lovers of good veg food and ambiance!",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWdGXCrRp-QBY6fo5_ZxI2BwN48XM6EwCaLEiySsoO0uLcQkzhD=w144-h144-p-rp-mo-ba5-br100"
+    content:
+      "Moai is one of the most peaceful and aesthetic veg spots in Bangalore. Beautiful interiors, calming vibes, and simple yet delicious food, perfect for quiet conversations or solo visits. A must-visit for lovers of good veg food and ambiance!",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjWdGXCrRp-QBY6fo5_ZxI2BwN48XM6EwCaLEiySsoO0uLcQkzhD=w144-h144-p-rp-mo-ba5-br100",
   },
   {
     id: 4,
     name: "Rahul Sharma",
     rating: 5,
-    content: "Exceptional vegetarian dining experience! The attention to detail in every dish is remarkable. The ambiance is perfect for both intimate dinners and family gatherings. Highly recommend the artisanal chats and innovative presentations.",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWUFU_m1k6SI9VFbPp4vdOM33FqSFw_cShd3cZ6UgIqGygOWjP3=w144-h144-p-rp-mo-ba4-br100"
+    content:
+      "Exceptional vegetarian dining experience! The attention to detail in every dish is remarkable. The ambiance is perfect for both intimate dinners and family gatherings. Highly recommend the artisanal chats and innovative presentations.",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjWUFU_m1k6SI9VFbPp4vdOM33FqSFw_cShd3cZ6UgIqGygOWjP3=w144-h144-p-rp-mo-ba4-br100",
   },
   {
     id: 5,
     name: "Priya Patel",
     rating: 5,
-    content: "MOAI has redefined vegetarian fine dining for me. The creative fusion of traditional and modern techniques is outstanding. The staff is knowledgeable and the atmosphere is so welcoming. A true gem in Jayanagar!",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVcWp7X0u7t-NUyBPhr57XAblDSX4qmbK5nvhFIXquREXeYh4WwVg=w144-h144-p-rp-mo-ba3-br100"
-  }
+    content:
+      "MOAI has redefined vegetarian fine dining for me. The creative fusion of traditional and modern techniques is outstanding. The staff is knowledgeable and the atmosphere is so welcoming. A true gem in Jayanagar!",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVcWp7X0u7t-NUyBPhr57XAblDSX4qmbK5nvhFIXquREXeYh4WwVg=w144-h144-p-rp-mo-ba3-br100",
+  },
 ];
 
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 56 : -56,
+    opacity: 0,
+    filter: "blur(4px)",
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 56 : -56,
+    opacity: 0,
+    filter: "blur(4px)",
+  }),
+};
+
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const { ref, isVisible } = useScrollAnimation();
+  const [[page, direction], setPage] = useState([0, 0]);
+  const prefersReducedMotion = useReducedMotion();
+  const currentIndex =
+    ((page % testimonials.length) + testimonials.length) % testimonials.length;
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const nextTestimonial = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    setTimeout(() => setIsTransitioning(false), 500);
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
   };
 
-  const prevTestimonial = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    setTimeout(() => setIsTransitioning(false), 500);
-  };
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: rating }, (_, i) => (
-      <Star key={i} className="w-4 h-4 fill-accent text-accent" aria-hidden="true" />
+  const renderStars = (rating: number) =>
+    Array.from({ length: rating }, (_, i) => (
+      <motion.span
+        key={i}
+        initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.05 * i, ...softSpring }}
+      >
+        <Star className="w-4 h-4 fill-accent text-accent" aria-hidden="true" />
+      </motion.span>
     ));
-  };
 
-  if (isMobile) {
-    return (
-      <section className="py-20 bg-gradient-to-b from-muted to-background">
-        <div className="container mx-auto px-6">
-          {/* Section Header */}
-          <div
-            ref={ref}
-            className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 animate-royal-entrance">
-              What Our Guests
-              <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
-            </h2>
-            <p className="text-lg text-foreground max-w-2xl mx-auto animate-luxury-slide font-medium">
-              Discover why guests rate MOAI among the best vegetarian restaurants in Bangalore for pure veg fine dining, romantic dinners, and family dining.
-            </p>
-          </div>
+  const visibleDesktop = [0, 1, 2].map(
+    (offset) => testimonials[(currentIndex + offset) % testimonials.length]
+  );
 
-          {/* Mobile Carousel */}
-          <div className="relative max-w-md mx-auto">
-            <div className="overflow-hidden rounded-2xl shadow-elegant">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <div className="bg-card p-8 rounded-2xl border border-border/50 hover:shadow-glow transition-smooth group">
-                      {/* Rating */}
-                      <div className="flex justify-center mb-6">
-                        <div className="flex gap-1">
-                          {renderStars(testimonial.rating)}
-                        </div>
-                      </div>
-
-                      {/* Quote */}
-                      <div className="relative mb-8">
-                        <svg 
-                          className="w-8 h-8 text-accent/30 absolute -top-2 -left-2" 
-                          fill="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                        </svg>
-                        <p className="text-lg leading-relaxed text-foreground italic pl-8 font-medium">
-                          "{testimonial.content}"
-                        </p>
-                      </div>
-
-                      {/* Author */}
-                      <div className="flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent/30 mr-4 group-hover:border-accent transition-smooth">
-                          <img 
-                            src={testimonial.avatar} 
-                            alt={`${testimonial.name}, MOAI Restaurant guest review`}
-                            width="64"
-                            height="64"
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h4 className="font-semibold text-primary">{testimonial.name}</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevTestimonial}
-              aria-label="Previous testimonial"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-smooth group"
-            >
-              <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              aria-label="Next testimonial"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-smooth group"
-            >
-              <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                  aria-current={index === currentIndex ? "true" : "false"}
-                  className={`w-2 h-2 rounded-full transition-smooth ${
-                    index === currentIndex 
-                      ? 'bg-accent w-6' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // Desktop Layout
   return (
     <section className="py-20 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div
-          ref={ref}
-          className={`text-center mb-16 ${isVisible ? "animate-royal-entrance" : "opacity-0"}`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 animate-royal-entrance">
+        <Reveal className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             What Our Guests
-            <span className="block text-accent shimmer-text font-extrabold">Say About Us</span>
+            <span className="block text-accent shimmer-text font-extrabold">
+              Say About Us
+            </span>
           </h2>
-          <p className="text-lg text-foreground max-w-2xl mx-auto animate-luxury-slide font-medium">
-            Discover why guests rate MOAI among the best vegetarian restaurants in Bangalore for pure veg fine dining, romantic dinners, and family dining.
+          <p className="text-lg text-foreground max-w-2xl mx-auto font-medium">
+            Discover why guests rate MOAI among the best vegetarian restaurants in
+            Bangalore for pure veg fine dining, romantic dinners, and family dining.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Desktop Testimonials Grid */}
-        <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <div 
-              key={testimonial.id} 
-              className={`group transition-all duration-500 ease-in-out ${
-                index === 1 
-                  ? 'col-span-1 scale-100 z-10 hover:scale-95 hover:shadow-glow -mt-8' 
-                  : 'col-span-1 scale-90 opacity-80 hover:scale-95 hover:opacity-100'
-              }`}
+        {/* Mobile */}
+        <div className="relative max-w-md mx-auto md:hidden">
+          <div className="overflow-hidden rounded-2xl min-h-[340px]">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={prefersReducedMotion ? undefined : slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: premiumEase }}
+                className="bg-card p-8 rounded-2xl border border-border/50 shadow-elegant"
+              >
+                <div className="flex justify-center mb-6 gap-1">
+                  {renderStars(testimonials[currentIndex].rating)}
+                </div>
+                <p className="text-lg leading-relaxed text-foreground italic mb-8 font-medium">
+                  &ldquo;{testimonials[currentIndex].content}&rdquo;
+                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <img
+                    src={testimonials[currentIndex].avatar}
+                    alt={`${testimonials[currentIndex].name}, MOAI Restaurant guest review`}
+                    width="48"
+                    height="48"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-accent/30"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <h4 className="font-semibold text-primary">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex justify-center gap-3 mt-6">
+            <motion.button
+              onClick={() => paginate(-1)}
+              aria-label="Previous testimonial"
+              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg"
+              whileHover={hoverScale}
+              whileTap={tapPress}
             >
-              <div className="bg-card p-8 rounded-2xl border border-border/50 hover:shadow-glow transition-all duration-500 ease-in-out group-hover:border-accent/30 relative overflow-hidden">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                  <div className="absolute top-4 right-4 w-16 h-16 border border-accent/20 rounded-full"></div>
-                  <div className="absolute bottom-4 left-4 w-8 h-8 border border-accent/20 rounded-full"></div>
-                </div>
+              <ChevronLeft className="w-5 h-5 text-primary" aria-hidden="true" />
+            </motion.button>
+            <motion.button
+              onClick={() => paginate(1)}
+              aria-label="Next testimonial"
+              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg"
+              whileHover={hoverScale}
+              whileTap={tapPress}
+            >
+              <ChevronRight className="w-5 h-5 text-primary" aria-hidden="true" />
+            </motion.button>
+          </div>
 
-                {/* Rating */}
-                <div className="flex justify-center mb-6">
-                  <div className="flex gap-1">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                </div>
+          <div className="flex justify-center mt-4 gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setPage([index, index > currentIndex ? 1 : -1])}
+                aria-label={`Go to testimonial ${index + 1}`}
+                aria-current={index === currentIndex ? "true" : "false"}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-accent w-6"
+                    : "bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
 
-                {/* Quote */}
-                <div className="relative mb-8">
-                  <svg 
-                    className="w-8 h-8 text-accent/30 absolute -top-2 -left-2 group-hover:text-accent/50 transition-colors duration-300" 
-                    fill="currentColor" 
-                    viewBox="0 0 24 24"
+        {/* Desktop */}
+        <div className="hidden md:block">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentIndex}
+              className="grid grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              custom={direction}
+            >
+              {visibleDesktop.map((testimonial, index) => (
+                <motion.div
+                  key={`${testimonial.id}-${currentIndex}-${index}`}
+                  variants={staggerItemScale}
+                  className={index === 1 ? "-mt-6 z-10" : "opacity-90"}
+                >
+                  <motion.div
+                    className={`bg-card p-8 rounded-2xl border border-border/50 h-full relative overflow-hidden ${
+                      index === 1 ? "shadow-glow border-accent/20" : "shadow-elegant"
+                    }`}
+                    whileHover={
+                      prefersReducedMotion
+                        ? undefined
+                        : { y: -6, boxShadow: "0 20px 40px -12px rgba(0,79,0,0.2)" }
+                    }
+                    transition={softSpring}
                   >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                  <p className={`leading-relaxed text-foreground italic pl-8 group-hover:text-foreground/90 transition-colors duration-300 font-medium ${
-                    index === 1 ? 'text-lg' : 'text-base'
-                  }`}>
-                    "{testimonial.content}"
-                  </p>
-                </div>
+                    <div className="flex justify-center mb-6 gap-1">
+                      {renderStars(testimonial.rating)}
+                    </div>
+                    <p
+                      className={`leading-relaxed text-foreground italic pl-1 mb-8 font-medium ${
+                        index === 1 ? "text-lg" : "text-base"
+                      }`}
+                    >
+                      &ldquo;{testimonial.content}&rdquo;
+                    </p>
+                    <div className="flex items-center justify-center gap-3">
+                      <img
+                        src={testimonial.avatar}
+                        alt={`${testimonial.name}, MOAI Restaurant guest review`}
+                        width="64"
+                        height="64"
+                        className={`rounded-full object-cover border-2 border-accent/30 ${
+                          index === 1 ? "w-16 h-16" : "w-12 h-12"
+                        }`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                      <h4
+                        className={`font-semibold text-primary ${
+                          index === 1 ? "text-lg" : "text-base"
+                        }`}
+                      >
+                        {testimonial.name}
+                      </h4>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
 
-                {/* Author */}
-                <div className="flex items-center justify-center">
-                  <div className={`rounded-full overflow-hidden border-2 border-accent/30 mr-4 group-hover:border-accent transition-all duration-300 ${
-                    index === 1 ? 'w-16 h-16' : 'w-12 h-12'
-                  }`}>
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={`${testimonial.name}, MOAI Restaurant guest review`}
-                      width="64"
-                      height="64"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h4 className={`font-semibold text-primary group-hover:text-accent transition-colors duration-300 ${
-                      index === 1 ? 'text-lg' : 'text-base'
-                    }`}>
-                      {testimonial.name}
-                    </h4>
-                  </div>
-                </div>
-
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              </div>
-            </div>
-          ))}
+          <div className="flex justify-center mt-10 gap-4">
+            <motion.button
+              onClick={() => paginate(-1)}
+              aria-label="Previous testimonial"
+              className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg"
+              whileHover={hoverScale}
+              whileTap={tapPress}
+            >
+              <ChevronLeft className="w-5 h-5 text-primary" aria-hidden="true" />
+            </motion.button>
+            <motion.button
+              onClick={() => paginate(1)}
+              aria-label="Next testimonial"
+              className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg"
+              whileHover={hoverScale}
+              whileTap={tapPress}
+            >
+              <ChevronRight className="w-5 h-5 text-primary" aria-hidden="true" />
+            </motion.button>
+          </div>
         </div>
 
-        {/* Carousel Navigation */}
-        <div className="flex justify-center mt-8 gap-4">
-          <button
-            onClick={prevTestimonial}
-            aria-label="Previous testimonial"
-            className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth group"
-          >
-            <ChevronLeft className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
-          </button>
-          <button
-            onClick={nextTestimonial}
-            aria-label="Next testimonial"
-            className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow transition-smooth group"
-          >
-            <ChevronRight className="w-5 h-5 text-primary group-hover:text-accent transition-smooth" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Decorative Elements */}
-        {/* Write Review Button */}
-        <div className="flex justify-center mt-16">
-          <a
+        <Reveal className="flex justify-center mt-16" delay={0.1}>
+          <motion.a
             href="https://www.google.com/maps/place/Moai+-+Redefined+Vegetarian+Dining/@12.9250249,77.5839511"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:bg-accent/90 transition-smooth shadow-elegant hover:shadow-glow group inline-flex items-center gap-2"
+            className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold shadow-elegant inline-flex items-center gap-2"
+            whileHover={hoverScale}
+            whileTap={tapPress}
           >
-            <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
             </svg>
             Write a Review on Google
-          </a>
-        </div>
+          </motion.a>
+        </Reveal>
       </div>
     </section>
   );
 };
 
-export default Testimonials; 
+export default Testimonials;

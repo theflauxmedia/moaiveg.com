@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  fadeUp,
+  blurUp,
   premiumEase,
   staggerContainer,
   staggerItem,
@@ -43,8 +43,8 @@ const PageHero = ({ title, description, badge, children }: PageHeroProps) => {
 
         <motion.h1
           className="mb-6 text-5xl font-bold text-primary md:text-7xl shimmer-text"
-          variants={fadeUp}
-          transition={{ duration: 0.8, ease: premiumEase }}
+          variants={blurUp}
+          transition={{ duration: 0.85, ease: premiumEase }}
         >
           {title}
         </motion.h1>

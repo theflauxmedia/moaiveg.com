@@ -1,17 +1,42 @@
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   fadeLeft,
   fadeUp,
+  hoverScale,
   premiumEase,
   scaleIn,
+  softSpring,
   staggerContainer,
   staggerItem,
+  tapPress,
 } from "@/lib/motion";
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 80]);
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, prefersReducedMotion ? 1 : 0.94]);
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.55],
+    [1, prefersReducedMotion ? 1 : 0.35]
+  );
+
   return (
     <section
+      ref={sectionRef}
       className="relative min-h-screen overflow-hidden"
       style={{
         background:
@@ -28,9 +53,13 @@ const Hero = () => {
           <motion.div
             key={i}
             className={`absolute ${leaf.className}`}
-            animate={{ y: [0, -12, 0] }}
+            animate={
+              prefersReducedMotion
+                ? undefined
+                : { y: [0, -14, 0], rotate: [0, i % 2 === 0 ? 6 : -6, 0] }
+            }
             transition={{
-              duration: 4 + i,
+              duration: 5 + i,
               repeat: Infinity,
               ease: "easeInOut",
               delay: leaf.delay,
@@ -48,6 +77,7 @@ const Hero = () => {
           {/* Text Content */}
           <motion.div
             className="order-2 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left max-w-2xl mx-auto lg:mx-0 lg:pr-8"
+            style={{ opacity: contentOpacity }}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -57,14 +87,14 @@ const Hero = () => {
                 <motion.span
                   className="block text-white"
                   variants={fadeLeft}
-                  transition={{ duration: 0.8, ease: premiumEase }}
+                  transition={{ duration: 0.85, ease: premiumEase }}
                 >
                   Where Artistry
                 </motion.span>
                 <motion.span
                   className="block text-white shimmer-text"
                   variants={fadeLeft}
-                  transition={{ duration: 0.8, ease: premiumEase, delay: 0.12 }}
+                  transition={{ duration: 0.85, ease: premiumEase, delay: 0.1 }}
                 >
                   Meets Flavour
                 </motion.span>
@@ -73,13 +103,23 @@ const Hero = () => {
               <motion.div
                 className="flex items-center justify-center lg:justify-start space-x-3"
                 variants={fadeUp}
-                transition={{ duration: 0.7, ease: premiumEase, delay: 0.3 }}
+                transition={{ duration: 0.7, ease: premiumEase, delay: 0.25 }}
               >
-                <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-primary to-accent" />
+                <motion.div
+                  className="h-0.5 bg-gradient-to-r from-primary to-accent"
+                  initial={{ width: 0 }}
+                  animate={{ width: "2.5rem" }}
+                  transition={{ duration: 0.8, ease: premiumEase, delay: 0.45 }}
+                />
                 <span className="text-base sm:text-lg text-white font-medium">
                   Mingle Over Artisinal Infusions
                 </span>
-                <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-l from-primary to-accent" />
+                <motion.div
+                  className="h-0.5 bg-gradient-to-l from-primary to-accent"
+                  initial={{ width: 0 }}
+                  animate={{ width: "2.5rem" }}
+                  transition={{ duration: 0.8, ease: premiumEase, delay: 0.45 }}
+                />
               </motion.div>
             </motion.div>
 
@@ -93,15 +133,15 @@ const Hero = () => {
                 {" "}
                 Mingle Over Artisanal Infusion{" "}
               </span>
-              in the heart of Jayanagar,{" "}
-              <span className="text-white font-medium">and soon in Koramangala</span>.
+              in Jayanagar and{" "}
+              <span className="text-white font-medium">Koramangala</span>.
             </motion.p>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start -mt-2 sm:mt-0"
               variants={staggerItem}
             >
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <motion.div whileHover={hoverScale} whileTap={tapPress}>
                 <Button
                   variant="hero"
                   size="lg"
@@ -130,22 +170,25 @@ const Hero = () => {
           {/* Video Section */}
           <motion.div
             className="order-1 lg:order-2 relative mt-8 sm:mt-12 lg:mt-0 mb-4 lg:mb-0 flex justify-center lg:justify-start lg:pl-4"
+            style={{ y: videoY, scale: videoScale }}
             variants={scaleIn}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.9, ease: premiumEase, delay: 0.25 }}
+            transition={{ duration: 0.95, ease: premiumEase, delay: 0.2 }}
           >
             <div className="relative">
-              <motion.div
-                className="absolute -inset-2 lg:-inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 rounded-2xl lg:rounded-[3rem] blur-xl lg:blur-3xl"
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
+              {!prefersReducedMotion && (
+                <motion.div
+                  className="absolute -inset-2 lg:-inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 rounded-2xl lg:rounded-[3rem] blur-xl lg:blur-3xl"
+                  animate={{ opacity: [0.55, 1, 0.55], scale: [1, 1.04, 1] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                />
+              )}
 
               <motion.div
                 className="relative glass rounded-2xl lg:rounded-3xl overflow-hidden shadow-glow"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.5, ease: premiumEase }}
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.025 }}
+                transition={softSpring}
               >
                 <video
                   src="/bgvd.webm"
@@ -174,11 +217,11 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hidden sm:block"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.7, ease: premiumEase }}
+        transition={{ delay: 1.2, duration: 0.7, ease: premiumEase }}
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={prefersReducedMotion ? undefined : { y: [0, 10, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         >
           <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />

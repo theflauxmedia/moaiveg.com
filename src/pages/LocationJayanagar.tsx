@@ -1,8 +1,16 @@
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Credits from "@/components/Credits";
 import SEOHead from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  blurUp,
+  hoverScale,
+  softSpring,
+  staggerContainer,
+  tapPress,
+} from "@/lib/motion";
 
 const LocationJayanagar = () => {
   const canonical = "https://www.moaiveg.com/locations/jayanagar";
@@ -55,15 +63,26 @@ const LocationJayanagar = () => {
 
       <main id="main-content">
         <section className="pt-24 pb-12 bg-gradient-to-b from-primary/20 to-background">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-royal-entrance shimmer-text">
+          <motion.div
+            className="container mx-auto px-6 text-center"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.h1
+              className="text-5xl md:text-7xl font-bold text-primary mb-6 shimmer-text"
+              variants={blurUp}
+            >
               MOAI Jayanagar
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
+            </motion.h1>
+            <motion.p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              variants={blurUp}
+            >
               Premium pure vegetarian fine dining in Jayanagar, Bengaluru, crafted for celebrations,
               dates, and memorable family dining.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </section>
 
         <section className="py-16">
@@ -75,20 +94,26 @@ const LocationJayanagar = () => {
                   790/43, 9th Main Rd, 4th Block, Jayanagar, Bengaluru, Karnataka 560011
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <a
+                  <motion.a
                     href="tel:08047363493"
-                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
+                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-3 rounded-lg font-medium"
+                    whileHover={hoverScale}
+                    whileTap={tapPress}
+                    transition={softSpring}
                   >
                     Call: 08047363493
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="https://maps.google.com/?q=12.9250249,77.5839511"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-smooth"
+                    whileHover={hoverScale}
+                    whileTap={tapPress}
+                    transition={softSpring}
                   >
                     Get Directions
-                  </a>
+                  </motion.a>
                 </div>
                 <p className="text-sm text-muted-foreground pt-4">
                   Open daily: 12–4 PM and 6:30–11 PM.
@@ -118,10 +143,10 @@ const LocationJayanagar = () => {
             <div className="max-w-4xl mx-auto text-center space-y-4">
               <h2 className="text-4xl font-bold text-primary">Serving Bengaluru</h2>
               <p className="text-lg text-muted-foreground">
-                If you’re searching for the best vegetarian fine dining near{" "}
-                <span className="font-medium text-foreground">Jayanagar</span> or{" "}
-                <span className="font-medium text-foreground">Koramangala</span>, MOAI is a
-                short drive away, perfect for date nights, birthdays, and corporate dinners.
+                Visit MOAI for premium vegetarian fine dining in{" "}
+                <span className="font-medium text-foreground">Jayanagar</span> and{" "}
+                <span className="font-medium text-foreground">Koramangala</span> — perfect for date
+                nights, birthdays, and corporate dinners across Bengaluru.
               </p>
             </div>
           </div>

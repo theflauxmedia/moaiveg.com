@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Reveal from "@/components/motion/Reveal";
-import { premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
+import {
+  hoverLift,
+  premiumEase,
+  softSpring,
+  staggerContainer,
+  staggerItemScale,
+} from "@/lib/motion";
 
 const Experience = () => {
   const experiences = [
@@ -47,11 +53,8 @@ const Experience = () => {
           viewport={{ once: true, margin: "-60px" }}
         >
           {experiences.map((experience) => (
-            <motion.div key={experience.title} variants={staggerItem}>
-              <motion.div
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.45, ease: premiumEase }}
-              >
+            <motion.div key={experience.title} variants={staggerItemScale}>
+              <motion.div whileHover={hoverLift} transition={softSpring}>
                 <Card className="group overflow-hidden border-0 shadow-elegant hover:shadow-glow transition-smooth royal-border hover:royal-glow h-full">
                   <div className="relative h-64 overflow-hidden">
                     <motion.img
@@ -61,8 +64,8 @@ const Experience = () => {
                       height="256"
                       className="w-full h-full object-cover"
                       loading="lazy"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.8, ease: premiumEase }}
+                      whileHover={{ scale: 1.12 }}
+                      transition={{ duration: 0.85, ease: premiumEase }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent mix-blend-multiply" />
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-beige/10 to-transparent" />

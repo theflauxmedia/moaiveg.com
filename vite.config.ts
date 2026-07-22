@@ -21,18 +21,28 @@ export default defineConfig(async ({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          motion: ["framer-motion"],
-          ui: [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-tooltip",
-          ],
-          forms: ["react-hook-form", "@hookform/resolvers", "zod"],
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return;
+          if (id.includes("framer-motion")) return "motion";
+          if (
+            id.includes("@radix-ui") ||
+            id.includes("class-variance-authority") ||
+            id.includes("clsx") ||
+            id.includes("tailwind-merge") ||
+            id.includes("lucide-react")
+          ) {
+            return "ui";
+          }
+          if (
+            id.includes("react-hook-form") ||
+            id.includes("@hookform") ||
+            id.includes("zod")
+          ) {
+            return "forms";
+          }
+          return "vendor";
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
   },
 }));

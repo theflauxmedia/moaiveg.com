@@ -1,6 +1,7 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
-  fadeUp,
+  blurUp,
+  reducedMotionVariants,
   smoothTransition,
   viewportOnce,
 } from "@/lib/motion";
@@ -17,10 +18,12 @@ const Reveal = ({
   children,
   className,
   delay = 0,
-  variants = fadeUp,
+  variants = blurUp,
   as = "div",
 }: RevealProps) => {
+  const prefersReducedMotion = useReducedMotion();
   const Component = motion[as];
+  const activeVariants = prefersReducedMotion ? reducedMotionVariants : variants;
 
   return (
     <Component
@@ -28,8 +31,12 @@ const Reveal = ({
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
-      variants={variants}
-      transition={{ ...smoothTransition, delay }}
+      variants={activeVariants}
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : { ...smoothTransition, delay }
+      }
     >
       {children}
     </Component>

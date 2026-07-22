@@ -15,11 +15,11 @@ const FAQ = () => {
     },
     {
       question: "Where are you located in Bangalore?",
-      answer: "We’re located in Jayanagar, Bengaluru (790/43, 9th Main Rd, 4th Block), and we’re opening a new outlet in Koramangala soon. If you’re searching for a vegetarian restaurant near me or veg restaurants near me, MOAI is easy to reach from across Bangalore."
+      answer: "MOAI has two Bengaluru outlets: Jayanagar (790/43, 9th Main Rd, 4th Block, 560011) and Koramangala 5th Block (134, 17th Main Road, 560095). If you’re searching for a vegetarian restaurant near me or veg restaurants near me, MOAI is easy to reach from across Bangalore."
     },
     {
-      question: "Is MOAI opening in Koramangala?",
-      answer: "Yes! MOAI is coming to Koramangala soon. The exact location will be revealed shortly. Follow us on Instagram @moai.jayanagar to be the first to know."
+      question: "Where is MOAI in Koramangala?",
+      answer: "MOAI Koramangala is at 134, 17th Main Road, Koramangala 5th Block, Bengaluru 560095. Call 080 472 82414. Open daily 12–4 PM and 6:30 PM–12 midnight. Pure vegetarian dining with North Indian, biryani, and desserts."
     },
     {
       question: "Is MOAI a pure vegetarian restaurant?",
@@ -40,7 +40,7 @@ const FAQ = () => {
     },
     {
       question: "What are your operating hours?",
-      answer: "We are open all days from 12:00 PM to 4:00 PM and 6:30 PM to 11:00 PM."
+      answer: "Jayanagar is open all days from 12:00 PM–4:00 PM and 6:30 PM–11:00 PM. Koramangala is open all days from 12:00 PM–4:00 PM and 6:30 PM–12:00 midnight."
     },
     {
       question: "Do you host birthdays, anniversaries, and romantic dinners?",

@@ -4,7 +4,7 @@ export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const THEME_COLOR = "#2B5A2E";
 
 export const DEFAULT_KEYWORDS =
-  "vegetarian fine dining Bangalore, best pure veg restaurant Bangalore, luxury vegetarian restaurant Jayanagar, vegan friendly restaurant Bangalore, premium veg restaurant Bangalore, corporate dining Bangalore, birthday dinner Bangalore vegetarian, romantic dinner Bangalore vegetarian, multi cuisine veg restaurant Bangalore, MOAI restaurant Jayanagar";
+  "vegetarian fine dining Bangalore, best pure veg restaurant Bangalore, luxury vegetarian restaurant Jayanagar, vegetarian restaurant Koramangala, moai koramangala, moai bangalore, vegan friendly restaurant Bangalore, premium veg restaurant Bangalore, corporate dining Bangalore, birthday dinner Bangalore vegetarian, romantic dinner Bangalore vegetarian, multi cuisine veg restaurant Bangalore, MOAI restaurant Jayanagar, MOAI restaurant Koramangala";
 
 export type PageSeoConfig = {
   title: string;
@@ -21,44 +21,44 @@ export type PageSeoConfig = {
 
 export const PAGE_SEO: Record<string, PageSeoConfig> = {
   home: {
-    title: "MOAI Restaurant | Premium Vegetarian Fine Dining in Jayanagar, Bangalore",
+    title: "MOAI Restaurant | Premium Vegetarian Fine Dining in Jayanagar & Koramangala, Bangalore",
     description:
-      "MOAI is Bangalore's finest pure vegetarian fine dining restaurant in Jayanagar. Enjoy multi-cuisine veg dining — ideal for family dinners, romantic dates, birthdays, anniversaries, and corporate groups.",
+      "MOAI is Bangalore's finest pure vegetarian fine dining restaurant in Jayanagar and Koramangala 5th Block. Enjoy multi-cuisine veg dining — ideal for family dinners, romantic dates, birthdays, anniversaries, and corporate groups.",
     path: "/",
-    ogTitle: "MOAI Restaurant | Vegetarian Fine Dining in Jayanagar, Bangalore",
+    ogTitle: "MOAI Restaurant | Vegetarian Fine Dining in Jayanagar & Koramangala, Bangalore",
     ogDescription:
-      "Pure veg & vegan-friendly multi-cuisine fine dining in Jayanagar, Bangalore. Perfect for families, couples, and corporate groups. Reserve your table today.",
+      "Pure veg & vegan-friendly multi-cuisine fine dining in Jayanagar and Koramangala, Bangalore. Perfect for families, couples, and corporate groups. Reserve your table today.",
     ogType: "restaurant",
     twitterTitle: "MOAI Restaurant | Vegetarian Fine Dining in Bangalore",
     twitterDescription:
-      "Bangalore's finest pure vegetarian fine dining in Jayanagar. Reserve your table today.",
+      "Bangalore's finest pure vegetarian fine dining in Jayanagar and Koramangala. Reserve your table today.",
   },
   menu: {
-    title: "Menu | MOAI Restaurant — Vegetarian Fine Dining Jayanagar, Bangalore",
+    title: "Menu | MOAI Restaurant — Vegetarian Fine Dining Bangalore",
     description:
-      "Explore MOAI's artisanal vegetarian fine dining menu in Jayanagar — chats, small plates, mains, beverages, and desserts. Pure veg, vegan-friendly, multi-cuisine.",
+      "Explore MOAI's artisanal vegetarian fine dining menu in Jayanagar and Koramangala — chats, small plates, mains, beverages, and desserts. Pure veg, vegan-friendly, multi-cuisine.",
     path: "/menu",
     ogTitle: "MOAI Restaurant Menu | Premium Veg Fine Dining Bangalore",
     ogDescription:
-      "Browse MOAI's pure vegetarian and vegan-friendly fine dining menu in Jayanagar, Bangalore.",
+      "Browse MOAI's pure vegetarian and vegan-friendly fine dining menu in Jayanagar and Koramangala, Bangalore.",
   },
   gallery: {
     title: "Gallery | MOAI Restaurant — Veg Fine Dining Ambience & Cuisine Bangalore",
     description:
-      "View MOAI Restaurant's gallery — premium vegetarian dishes, elegant dining ambience, and celebrations at our Jayanagar, Bangalore fine dining outlet.",
+      "View MOAI Restaurant's gallery — premium vegetarian dishes, elegant dining ambience, and celebrations at our Jayanagar and Koramangala fine dining outlets.",
     path: "/gallery",
     ogTitle: "MOAI Restaurant Gallery | Vegetarian Fine Dining Bangalore",
     ogDescription:
-      "Photos of MOAI's vegetarian fine dining dishes and luxury ambience in Jayanagar, Bangalore.",
+      "Photos of MOAI's vegetarian fine dining dishes and luxury ambience in Jayanagar and Koramangala, Bangalore.",
   },
   contact: {
-    title: "Contact & Location | MOAI Restaurant Jayanagar, Bangalore",
+    title: "Contact & Location | MOAI Restaurant Jayanagar & Koramangala, Bangalore",
     description:
-      "Contact MOAI Restaurant in Jayanagar, Bangalore for reservations, group dining, and enquiries. Pure vegetarian fine dining — call, email, or visit us.",
+      "Contact MOAI Restaurant in Jayanagar and Koramangala 5th Block, Bangalore for reservations, group dining, and enquiries. Pure vegetarian fine dining — call, email, or visit us.",
     path: "/contact",
-    ogTitle: "Contact MOAI Restaurant | Jayanagar, Bangalore",
+    ogTitle: "Contact MOAI Restaurant | Jayanagar & Koramangala, Bangalore",
     ogDescription:
-      "Get in touch with MOAI for table reservations and group dining in Jayanagar, Bangalore.",
+      "Get in touch with MOAI for table reservations and group dining in Jayanagar and Koramangala, Bangalore.",
   },
   notFound: {
     title: "Page Not Found | MOAI Restaurant",
@@ -76,8 +76,8 @@ export const RESTAURANT_JSON_LD = {
   logo: `${SITE_URL}/logo.png`,
   image: DEFAULT_OG_IMAGE,
   description:
-    "Premium vegetarian fine dining restaurant in Jayanagar, Bangalore. Pure veg & vegan-friendly, multi-cuisine, ideal for family meals, romantic dinners, birthdays, anniversaries, and corporate groups.",
-  servesCuisine: ["Vegetarian", "Vegan", "Multi-cuisine", "Indian", "Continental"],
+    "Premium vegetarian fine dining restaurant with outlets in Jayanagar and Koramangala 5th Block, Bangalore. Pure veg & vegan-friendly, multi-cuisine, ideal for family meals, romantic dinners, birthdays, anniversaries, and corporate groups.",
+  servesCuisine: ["Vegetarian", "Vegan", "Multi-cuisine", "Indian", "North Indian", "Continental", "Biryani", "Desserts"],
   priceRange: "₹₹₹",
   hasMap: "https://maps.google.com/?q=MOAI+Restaurant+Jayanagar+Bangalore",
   address: {

@@ -131,8 +131,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Contact MOAI Restaurant | Reservations & Group Dining, Jayanagar, Bangalore"
-        description="Contact MOAI Restaurant for reservations, group dining, corporate events, or birthday celebrations. Visit us at 790/43, 9th Main Rd, Jayanagar, Bengaluru. Koramangala outlet coming soon. Call 08047363493."
+        title="Contact MOAI Restaurant | Reservations in Jayanagar & Koramangala, Bangalore"
+        description="Contact MOAI Restaurant for reservations, group dining, corporate events, or birthday celebrations. Jayanagar: 790/43, 9th Main Rd — 08047363493. Koramangala 5th Block: 134, 17th Main Road — 080 472 82414."
         canonical="https://www.moaiveg.com/contact"
         breadcrumbs={[
           { name: "Home", item: "https://www.moaiveg.com/" },
@@ -148,7 +148,7 @@ const Contact = () => {
       <main id="main-content">
         <PageHero
           title="Contact Us"
-          description="We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining, we're here to help you enjoy premium vegetarian dining in Jayanagar, Bangalore. Koramangala, we're coming to you soon!"
+          description="We'd love to hear from you. Whether you have questions about our menu, want to book a table, or need help planning group dining, we're here to help you enjoy premium vegetarian dining at MOAI in Jayanagar and Koramangala, Bangalore."
         />
 
       {/* Contact Content */}
@@ -178,14 +178,25 @@ const Contact = () => {
               <div className="space-y-6">
                 {[
                   {
-                    title: "Visit Us",
+                    title: "Visit Us — Jayanagar",
                     content: <>790/43, 9th Main Rd<br/>4th Block, Jayanagar<br/>Bengaluru, Karnataka 560011</>,
                     icon: <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />,
                     fill: true,
                   },
                   {
+                    title: "Visit Us — Koramangala",
+                    content: <>134, 17th Main Road<br/>Koramangala 5th Block<br/>Bengaluru, Karnataka 560095</>,
+                    icon: <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />,
+                    fill: true,
+                  },
+                  {
                     title: "Call Us",
-                    content: <a href="tel:08047363493" className="font-medium hover:text-foreground transition-smooth">08047363493</a>,
+                    content: (
+                      <>
+                        <a href="tel:08047363493" className="font-medium hover:text-foreground transition-smooth block">Jayanagar: 08047363493</a>
+                        <a href="tel:08047282414" className="font-medium hover:text-foreground transition-smooth block mt-1">Koramangala: 080 472 82414</a>
+                      </>
+                    ),
                     icon: <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />,
                     fill: true,
                   },
@@ -509,27 +520,20 @@ const Contact = () => {
 
               <motion.div variants={staggerItem} whileHover={{ y: -4 }} transition={{ duration: 0.4, ease: premiumEase }}>
               <Card className="gradient-card border-border/50 overflow-hidden">
-                <div className="relative h-56 w-full">
+                <div className="relative h-96 w-full">
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-md">
+                    Koramangala · Open Now
+                  </span>
                   <iframe
-                    src="https://www.google.com/maps?q=Koramangala,+Bengaluru&z=13&output=embed"
+                    src="https://www.google.com/maps?q=134,+17th+Main+Road,+Koramangala+5th+Block,+Bengaluru+560095&z=17&output=embed"
                     width="100%"
                     height="100%"
-                    style={{ border: 0, filter: "blur(3px) saturate(0.7)" }}
+                    style={{ border: 0 }}
+                    allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="MOAI Koramangala coming soon"
-                    tabIndex={-1}
-                    aria-hidden
-                    className="pointer-events-none select-none"
+                    title="MOAI Restaurant Koramangala Location"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-primary/30">
-                    <div className="mx-4 rounded-xl border border-white/30 bg-black/55 px-6 py-4 text-center text-white shadow-lg backdrop-blur-md">
-                      <p className="text-lg font-bold">Koramangala</p>
-                      <p className="text-sm text-[#FED6AB]">
-                        Exact location revealing soon. Stay tuned!
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </Card>
               </motion.div>
@@ -539,9 +543,8 @@ const Contact = () => {
               <div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Location Details</h3>
                 <p className="text-muted-foreground mb-6">
-                  MOAI Restaurant is conveniently located in the heart of Jayanagar, 
-                  making it easily accessible for both locals and visitors. And we're 
-                  expanding, with our new Koramangala outlet coming soon!
+                  MOAI Restaurant has two Bengaluru locations — our flagship in Jayanagar and our
+                  new outlet in Koramangala 5th Block — both easy to reach for locals and visitors.
                 </p>
               </div>
               
@@ -552,8 +555,29 @@ const Contact = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <div>
-                    <h4 className="font-semibold text-foreground">Address</h4>
+                    <h4 className="font-semibold text-foreground">Jayanagar</h4>
                     <p className="text-muted-foreground">790/43, 9th Main Rd, 4th Block, Jayanagar, Bengaluru, Karnataka 560011</p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      <a href="tel:08047363493" className="hover:text-foreground transition-smooth">08047363493</a>
+                      {" · "}
+                      <a href="/locations/jayanagar" className="text-primary hover:underline">Location page</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <svg className="w-6 h-6 text-accent mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Koramangala 5th Block</h4>
+                    <p className="text-muted-foreground">134, 17th Main Road, Koramangala 5th Block, Bengaluru, Karnataka 560095</p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      <a href="tel:08047282414" className="hover:text-foreground transition-smooth">080 472 82414</a>
+                      {" · "}
+                      <a href="/locations/koramangala" className="text-primary hover:underline">Location page</a>
+                    </p>
                   </div>
                 </div>
                 
@@ -564,8 +588,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Hours</h4>
                     <p className="text-muted-foreground">
-                      12–4 pm<br />
-                      6:30–11 pm
+                      <span className="font-medium text-foreground">Jayanagar:</span> 12–4 pm · 6:30–11 pm<br />
+                      <span className="font-medium text-foreground">Koramangala:</span> 12–4 pm · 6:30 pm–12 midnight
                     </p>
                     <p className="text-xs text-muted-foreground mt-1">
                       Open all days
@@ -580,27 +604,48 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
                     <p className="text-muted-foreground">
+                      Jayanagar:{" "}
                       <a href="tel:08047363493" className="hover:text-foreground transition-smooth">
                         08047363493
+                      </a>
+                      <br />
+                      Koramangala:{" "}
+                      <a href="tel:08047282414" className="hover:text-foreground transition-smooth">
+                        080 472 82414
                       </a>
                     </p>
                   </div>
                 </div>
               </div>
               
-              <motion.a 
-                href="https://maps.google.com/?q=12.9250249,77.5839511"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3" />
-                </svg>
-                Get Directions
-              </motion.a>
+              <div className="flex flex-wrap gap-3">
+                <motion.a 
+                  href="https://maps.google.com/?q=12.9250249,77.5839511"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-smooth"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3" />
+                  </svg>
+                  Directions — Jayanagar
+                </motion.a>
+                <motion.a 
+                  href="https://maps.google.com/?q=134,+17th+Main+Road,+Koramangala+5th+Block,+Bengaluru+560095"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-smooth"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3" />
+                  </svg>
+                  Directions — Koramangala
+                </motion.a>
+              </div>
             </Reveal>
           </div>
         </div>

@@ -126,7 +126,7 @@ const Philosophy = () => {
                     blend global techniques with familiar traditions, and present every dish with{" "}
                     <span className="font-bold text-brand-bronze">creative passion</span>. It&apos;s
                     more than a meal; it&apos;s an experience designed to be shared and savoured for
-                    family lunches, romantic dinners, and group dining. Now in Jayanagar, soon in
+                    family lunches, romantic dinners, and group dining. Now in Jayanagar and
                     Koramangala.
                   </>,
                   "Every plate tells a story, every flavor sparks conversation, and every moment spent here enriches the soul.",
