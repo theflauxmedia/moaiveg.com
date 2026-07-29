@@ -11,6 +11,7 @@ import {
   staggerContainer,
   tapPress,
 } from "@/lib/motion";
+import { RESERVATION_LINKS } from "@/lib/reservations";
 
 const LocationJayanagar = () => {
   const canonical = "https://www.moaiveg.com/locations/jayanagar";
@@ -95,8 +96,19 @@ const LocationJayanagar = () => {
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <motion.a
-                    href="tel:08047363493"
+                    href={RESERVATION_LINKS.jayanagar}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-3 rounded-lg font-medium"
+                    whileHover={hoverScale}
+                    whileTap={tapPress}
+                    transition={softSpring}
+                  >
+                    Reserve a Table
+                  </motion.a>
+                  <motion.a
+                    href="tel:08047363493"
+                    className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-smooth"
                     whileHover={hoverScale}
                     whileTap={tapPress}
                     transition={softSpring}

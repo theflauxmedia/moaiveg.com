@@ -1,3 +1,5 @@
+import { RESERVATION_LINKS } from "@/lib/reservations";
+
 const Footer = () => {
   // Mock Instagram posts - using local images for demo
   const instagramPosts = [
@@ -28,14 +30,21 @@ const Footer = () => {
               Where culinary artistry meets sustainable dining. MOAI is a luxury veg restaurant in Jayanagar and Koramangala, Bangalore. We offer premium vegetarian fine dining with vegan-friendly, multi-cuisine flavors, ideal for family meals, date nights, celebrations, and corporate group dining.
             </p>
             <div className="flex space-x-4">
-              {/* <Button variant="outline" size="sm" className="text-black border-white/30 hover:bg-white/10 text:black">
-                Reserve Now
-              </Button> */}
               <a
-                href="/menu"
-                className="text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-smooth inline-flex items-center"
+                href={RESERVATION_LINKS.jayanagar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary bg-[#FED6AB] hover:bg-[#ffe3c2] px-3 py-2 rounded-md text-sm font-medium transition-smooth inline-flex items-center"
               >
-                View Menu
+                Reserve Jayanagar
+              </a>
+              <a
+                href={RESERVATION_LINKS.koramangala}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary bg-[#FED6AB] hover:bg-[#ffe3c2] px-3 py-2 rounded-md text-sm font-medium transition-smooth inline-flex items-center"
+              >
+                Reserve Koramangala
               </a>
             </div>
           </div>
@@ -51,7 +60,22 @@ const Footer = () => {
               <a href="/locations/jayanagar" className="block text-white/80 hover:text-white transition-smooth">Jayanagar</a>
               <a href="/locations/koramangala" className="block text-white/80 hover:text-white transition-smooth">Koramangala</a>
               <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Contact</a>
-              <a href="/contact" className="block text-white/80 hover:text-white transition-smooth">Reservations</a>
+              <a
+                href={RESERVATION_LINKS.jayanagar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white/80 hover:text-white transition-smooth"
+              >
+                Reserve Jayanagar
+              </a>
+              <a
+                href={RESERVATION_LINKS.koramangala}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white/80 hover:text-white transition-smooth"
+              >
+                Reserve Koramangala
+              </a>
             </nav>
           </div>
 
@@ -265,8 +289,23 @@ const Footer = () => {
             © {new Date().getFullYear()} MOAI Restaurant. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-white/70">
-            <a href="mailto:moai.eripl@gmail.com" className="hover:text-white transition-smooth">Contact</a>
-            <a href="/contact" className="hover:text-white transition-smooth">Reservations</a>
+            <a href="/contact" className="hover:text-white transition-smooth">Contact</a>
+            <a
+              href={RESERVATION_LINKS.jayanagar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-smooth"
+            >
+              Reserve Jayanagar
+            </a>
+            <a
+              href={RESERVATION_LINKS.koramangala}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-smooth"
+            >
+              Reserve Koramangala
+            </a>
           </div>
         </div>
       </div>

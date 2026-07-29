@@ -17,6 +17,7 @@ import {
   staggerItem,
   tapPress,
 } from "@/lib/motion";
+import { RESERVATION_LINKS } from "@/lib/reservations";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -138,20 +139,54 @@ const Hero = () => {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start -mt-2 sm:mt-0"
+              className="grid w-full max-w-md sm:max-w-lg grid-cols-1 sm:grid-cols-2 gap-3 justify-center lg:justify-start -mt-2 sm:mt-0 mx-auto lg:mx-0"
               variants={staggerItem}
             >
-              <motion.div whileHover={hoverScale} whileTap={tapPress}>
+              <motion.div className="sm:col-span-2" whileHover={hoverScale} whileTap={tapPress}>
                 <Button
                   variant="hero"
                   size="lg"
-                  className="text-[#0046D3] sm:text-lg px-6 sm:px-8 py-3 sm:py-4 royal-glow"
+                  className="w-full text-[#0046D3] text-base sm:text-lg px-4 sm:px-6 py-3 royal-glow"
                   onClick={() => {
                     window.location.href = "/menu";
                   }}
                   aria-label="Explore MOAI's vegetarian menu"
                 >
                   Explore Our Menu
+                </Button>
+              </motion.div>
+              <motion.div whileHover={hoverScale} whileTap={tapPress}>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-white/40 bg-white/10 text-white hover:bg-white/20 text-sm sm:text-base px-3 sm:px-4 py-3"
+                >
+                  <a
+                    href={RESERVATION_LINKS.jayanagar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Reserve a table at MOAI Jayanagar"
+                  >
+                    Reserve Jayanagar
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={hoverScale} whileTap={tapPress}>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-white/40 bg-white/10 text-white hover:bg-white/20 text-sm sm:text-base px-3 sm:px-4 py-3"
+                >
+                  <a
+                    href={RESERVATION_LINKS.koramangala}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Reserve a table at MOAI Koramangala"
+                  >
+                    Reserve Koramangala
+                  </a>
                 </Button>
               </motion.div>
             </motion.div>

@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import SEOHead from "@/components/SEOHead";
 import { fadeLeft, fadeRight, premiumEase, staggerContainer, staggerItem } from "@/lib/motion";
+import { RESERVATION_LINKS } from "@/lib/reservations";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -179,13 +180,41 @@ const Contact = () => {
                 {[
                   {
                     title: "Visit Us — Jayanagar",
-                    content: <>790/43, 9th Main Rd<br/>4th Block, Jayanagar<br/>Bengaluru, Karnataka 560011</>,
+                    content: (
+                      <>
+                        790/43, 9th Main Rd<br />
+                        4th Block, Jayanagar<br />
+                        Bengaluru, Karnataka 560011
+                        <a
+                          href={RESERVATION_LINKS.jayanagar}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline"
+                        >
+                          Reserve a table →
+                        </a>
+                      </>
+                    ),
                     icon: <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />,
                     fill: true,
                   },
                   {
                     title: "Visit Us — Koramangala",
-                    content: <>134, 17th Main Road<br/>Koramangala 5th Block<br/>Bengaluru, Karnataka 560095</>,
+                    content: (
+                      <>
+                        134, 17th Main Road<br />
+                        Koramangala 5th Block<br />
+                        Bengaluru, Karnataka 560095
+                        <a
+                          href={RESERVATION_LINKS.koramangala}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline"
+                        >
+                          Reserve a table →
+                        </a>
+                      </>
+                    ),
                     icon: <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />,
                     fill: true,
                   },
@@ -223,7 +252,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-2">{card.title}</h3>
-                        <p className="text-muted-foreground">{card.content}</p>
+                        <div className="text-muted-foreground">{card.content}</div>
                       </div>
                     </div>
                   </CardContent>
@@ -561,6 +590,15 @@ const Contact = () => {
                       <a href="tel:08047363493" className="hover:text-foreground transition-smooth">08047363493</a>
                       {" · "}
                       <a href="/locations/jayanagar" className="text-primary hover:underline">Location page</a>
+                      {" · "}
+                      <a
+                        href={RESERVATION_LINKS.jayanagar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline font-medium"
+                      >
+                        Reserve a table
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -577,6 +615,15 @@ const Contact = () => {
                       <a href="tel:08047282414" className="hover:text-foreground transition-smooth">080 472 82414</a>
                       {" · "}
                       <a href="/locations/koramangala" className="text-primary hover:underline">Location page</a>
+                      {" · "}
+                      <a
+                        href={RESERVATION_LINKS.koramangala}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline font-medium"
+                      >
+                        Reserve a table
+                      </a>
                     </p>
                   </div>
                 </div>
